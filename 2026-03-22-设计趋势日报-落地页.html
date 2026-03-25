@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>设计趋势日报 · 2026年3月22日</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+
+    :root {
+      --cream: #FAF7F2;
+      --sage: #7A9E7E;
+      --terracotta: #C2714F;
+      --dark: #2C2C2C;
+      --mid: #6B6B6B;
+      --light: #E8E2D9;
+      --card-bg: #FFFFFF;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--cream); color: var(--dark); font-family: 'Noto Sans SC', sans-serif; font-weight: 300; line-height: 1.8; }
+
+    .hero {
+      position: relative;
+      height: 60vh;
+      min-height: 380px;
+      background: linear-gradient(135deg, #1a2a4a 0%, #2C3E50 50%, #7A9E7E 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; overflow: hidden; padding: 2rem;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-tag { font-size:.75rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.7); margin-bottom:.8rem; }
+    .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.2rem); color:#fff; line-height:1.2; margin-bottom:.6rem; }
+    .hero-sub { font-size:.9rem; color:rgba(255,255,255,.65); letter-spacing:.1em; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+    .headline-section { margin: -3rem auto 0; max-width: 900px; padding: 0 1.5rem; position: relative; z-index: 10; }
+    .headline-card {
+      background: var(--card-bg); border-radius: 16px; padding: 2.4rem 2.8rem;
+      box-shadow: 0 8px 40px rgba(0,0,0,.12); border-left: 5px solid var(--terracotta);
+    }
+    .headline-card .badge {
+      display:inline-block; background:var(--terracotta); color:#fff;
+      font-size:.7rem; letter-spacing:.15em; text-transform:uppercase;
+      padding:.3rem .9rem; border-radius:20px; margin-bottom:1rem;
+    }
+    .headline-card h2 { font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:.8rem; color:var(--dark); }
+    .headline-card p { color:var(--mid); font-size:.95rem; }
+    .tag-list { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1rem; }
+    .tag { background:var(--light); border-radius:20px; padding:.3rem .9rem; font-size:.82rem; color:var(--dark); }
+    .tag.green { background:#e8f4ea; color:var(--sage); }
+    .insight-box { background:linear-gradient(135deg,#f0f7f0,#faf7f0); border-radius:10px; padding:1rem 1.4rem; margin-top:1.2rem; font-size:.9rem; color:var(--sage); border-left:3px solid var(--sage); }
+
+    .section { padding:3rem 0 1rem; }
+    .section-title { font-family:'Playfair Display',serif; font-size:1.5rem; color:var(--dark); margin-bottom:1.6rem; padding-bottom:.6rem; border-bottom:2px solid var(--light); display:flex; align-items:center; gap:.6rem; }
+    .section-title span { font-size:1.3rem; }
+
+    .grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.4rem; }
+    .card { background:var(--card-bg); border-radius:14px; padding:1.6rem; box-shadow:0 2px 16px rgba(0,0,0,.06); transition:transform .25s,box-shadow .25s; border-top:3px solid var(--light); }
+    .card:hover { transform:translateY(-4px); box-shadow:0 8px 28px rgba(0,0,0,.1); }
+    .card.sage { border-top-color:var(--sage); }
+    .card.terra { border-top-color:var(--terracotta); }
+    .card-label { font-size:.7rem; letter-spacing:.15em; text-transform:uppercase; color:var(--mid); margin-bottom:.5rem; }
+    .card h3 { font-family:'Playfair Display',serif; font-size:1.1rem; margin-bottom:.7rem; color:var(--dark); }
+    .card p { font-size:.88rem; color:var(--mid); line-height:1.7; }
+    .card ul { padding-left:1.2rem; font-size:.88rem; color:var(--mid); line-height:1.9; }
+
+    .trend-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:1rem; margin-top:1.2rem; }
+    .trend-item { background:var(--card-bg); border-radius:12px; padding:1.2rem; text-align:center; box-shadow:0 2px 12px rgba(0,0,0,.05); }
+    .trend-emoji { font-size:1.8rem; margin-bottom:.4rem; }
+    .trend-item p { font-size:.85rem; color:var(--mid); }
+
+    .quote-section { padding:3rem 0; }
+    .quote-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(420px,1fr)); gap:1.4rem; }
+    .quote-card { background:linear-gradient(135deg,#4A6741,#2C3E50); border-radius:14px; padding:2rem 2.4rem; color:#fff; }
+    .quote-card blockquote { font-family:'Playfair Display',serif; font-size:1.1rem; font-style:italic; line-height:1.7; margin-bottom:.8rem; }
+    .quote-card cite { font-size:.8rem; opacity:.7; }
+
+    footer { background:var(--dark); color:rgba(255,255,255,.5); text-align:center; padding:2rem; font-size:.8rem; }
+
+    @media (max-width:640px) {
+      .headline-card { padding:1.6rem; }
+      .quote-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<section class="hero">
+  <p class="hero-tag">Design Daily · 每日设计趋势</p>
+  <h1>设计趋势日报<br>2026年3月22日</h1>
+  <p class="hero-sub">工业设计 · 家居设计 · 消费电子</p>
+</section>
+
+<div class="headline-section">
+  <div class="headline-card">
+    <span class="badge">🔥 今日头条</span>
+    <h2>AWE 2026：AI 跨界融合，四大产业趋势浮现</h2>
+    <p>3月12-15日，上海。17万平方米展场，超过1200家企业参展。中国家电及消费电子博览会展示了以AI为核心驱动力的全面产业升级。</p>
+    <div class="tag-list">
+      <span class="tag">🤖 AI深度融合</span>
+      <span class="tag">🏠 智能家居</span>
+      <span class="tag green">♻️ 绿色设计</span>
+      <span class="tag">📱 消费电子新品</span>
+    </div>
+    <div class="insight-box">💡 AWE是亚洲最大的消费电子展之一，2026年的核心信号：AI不再是"附加功能"，而是产品设计的基础逻辑。</div>
+  </div>
+</div>
+
+<div class="container">
+  <section class="section">
+    <h2 class="section-title"><span>📱</span> 消费电子</h2>
+    <div class="grid">
+      <div class="card terra">
+        <p class="card-label">市场动态</p>
+        <h3>电子产品集体涨价潮</h3>
+        <p>手机、电脑、游戏机、固态硬盘、相机存储卡全面上涨。主因：AI芯片成本攀升 + 内存价格上涨。OPPO宣布3月16日起上调部分手机价格。</p>
+      </div>
+      <div class="card">
+        <p class="card-label">新品预告</p>
+        <h3>2026上半年值得期待</h3>
+        <ul>
+          <li>华为 Mate 系列新品</li>
+          <li>小米 17 Ultra 信息已流出</li>
+          <li>三星 Galaxy S26 系列</li>
+        </ul>
+        <div style="margin-top:.8rem">
+          <p style="font-size:.82rem;color:var(--sage)">🎨 配色趋势：带感绿 · 好搭紫 · 零度白 · 幻夜黑</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title"><span>🏭</span> 工业设计</h2>
+    <div class="grid">
+      <div class="card sage">
+        <p class="card-label">行业报告</p>
+        <h3>2026年产品设计三大驱动力</h3>
+        <ul>
+          <li>🧠 <strong>智能化</strong> — AI融入产品核心逻辑</li>
+          <li>🌱 <strong>绿色化</strong> — 可持续设计成标配</li>
+          <li>🎯 <strong>个性化</strong> — 用户定制需求爆发</li>
+        </ul>
+        <p style="margin-top:.8rem;font-size:.85rem">从外观美化转向整合技术、用户体验、商业模式的综合设计思维。</p>
+      </div>
+      <div class="card">
+        <p class="card-label">YANG DESIGN</p>
+        <h3>2025-2026中国设计趋势报告</h3>
+        <p>权威趋势预测，自2013年起连续发布。针对中国市场的潮流风向标，为产品设计提供前瞻指引。中国设计服务行业年增长率持续上升。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title"><span>🏠</span> 家居设计</h2>
+    <div class="grid">
+      <div class="card sage">
+        <p class="card-label">2026五大趋势</p>
+        <h3>从极简到丰盛</h3>
+        <ul>
+          <li>🎨 <strong>色彩与温度</strong> — 极简主义不再主导</li>
+          <li>🪵 <strong>材质与纹理</strong> — 强调自然纹理质感</li>
+          <li>📖 <strong>个性化故事感</strong> — 更丰富、更舒适</li>
+          <li>👃 <strong>感官体验</strong> — 从外在回归内在</li>
+          <li>❤️ <strong>情感满足</strong> — 伦理与情感意义</li>
+        </ul>
+      </div>
+      <div class="card terra">
+        <p class="card-label">3月流行元素</p>
+        <h3>设计风格关键词</h3>
+        <div class="tag-list" style="margin-top:.6rem">
+          <span class="tag">📰 高级杂志风</span>
+          <span class="tag">📔 装饰手帐</span>
+          <span class="tag green">🌿 疗愈山野</span>
+          <span class="tag">🎮 游戏像素</span>
+          <span class="tag">✂️ 纸感拼贴</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <div class="quote-grid">
+      <div class="quote-card">
+        <blockquote>"AI与电子产品深度融合，正在推动产品智能化进入新纪元。"</blockquote>
+        <cite>AWE 2026 展会趋势观察 · 2026年3月</cite>
+      </div>
+      <div class="quote-card" style="background:linear-gradient(135deg,#C2714F,#8B4513)">
+        <blockquote>"家居设计正从功能导向转向情感和体验导向。"</blockquote>
+        <cite>2026家居设计趋势报告 · 与世界温和共存，充满伦理与情感意义的生活哲学。</cite>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p>设计趋势日报 · 2026年3月22日</p>
+  <p style="margin-top:.4rem">工业设计 · 家居设计 · 消费电子 | 每日10:00推送</p>
+</footer>
+
+</body>
+</html>
