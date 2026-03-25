@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>设计趋势日报 · 2026年3月23日</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF8F5;
+    --warm-white: #FDFCFB;
+    --sage: #7A9E7E;
+    --sage-light: #B8CEB5;
+    --sage-dark: #5B7E5F;
+    --rust: #C4704F;
+    --rust-light: #E8A889;
+    --charcoal: #2C2C2C;
+    --text: #3A3A3A;
+    --text-light: #888;
+    --border: #E8E4DE;
+    --card-bg: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Noto Sans SC', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ========== 顶栏 ========== */
+  .topbar {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.9);
+    padding: 8px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+  .topbar a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+  .topbar a:hover { color: var(--sage-light); }
+
+  /* ========== 封面大图区 ========== */
+  .cover {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+  }
+  .cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.6);
+  }
+  .cover-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.1) 0%,
+      rgba(0,0,0,0.4) 50%,
+      rgba(0,0,0,0.75) 100%
+    );
+  }
+  .cover-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 48px 64px 52px;
+    color: #fff;
+  }
+  .cover-date {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rust-light);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .cover-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.15;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .cover-title span { color: var(--rust-light); }
+  .cover-subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 1px;
+    font-weight: 300;
+    max-width: 560px;
+  }
+  .cover-badge {
+    position: absolute;
+    top: 28px;
+    right: 48px;
+    background: var(--rust);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 6px 18px;
+  }
+
+  /* ========== 今日头条卡片 ========== */
+  .headline-section {
+    max-width: 1100px;
+    margin: -60px auto 0;
+    padding: 0 24px;
+    position: relative;
+    z-index: 10;
+  }
+  .headline-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    overflow: hidden;
+  }
+  .headline-img {
+    position: relative;
+    overflow: hidden;
+  }
+  .headline-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .headline-card:hover .headline-img img { transform: scale(1.03); }
+  .headline-img-tag {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: var(--rust);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    padding: 4px 14px;
+  }
+  .headline-body {
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .headline-category {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--sage);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .headline-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+  }
+  .headline-desc {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.85;
+    margin-bottom: 20px;
+  }
+  .headline-products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .hl-product {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+    border: 1px solid var(--border);
+  }
+  .hl-product strong { display: block; font-size: 12px; color: var(--sage-dark); margin-bottom: 2px; }
+  .headline-cta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--charcoal);
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 9px 20px;
+    border-radius: 24px;
+    transition: background 0.25s, transform 0.2s;
+    font-weight: 400;
+  }
+  .btn-primary:hover { background: var(--rust); transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 13px;
+    padding: 9px 20px;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    transition: border-color 0.25s, background 0.25s;
+    font-weight: 400;
+  }
+  .btn-secondary:hover { border-color: var(--sage); background: rgba(122,158,126,0.06); }
+
+  /* ========== 通用版块标题 ========== */
+  .section-header {
+    max-width: 1100px;
+    margin: 64px auto 0;
+    padding: 0 24px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .section-header h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--charcoal);
+    white-space: nowrap;
+  }
+  .section-header-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-header-sub {
+    font-size: 12px;
+    color: var(--text-light);
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  /* ========== Pinterest 瀑布流网格 ========== */
+  .masonry-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    columns: 3;
+    column-gap: 20px;
+  }
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 20px;
+    background: var(--card-bg);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .masonry-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  }
+  .masonry-img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  .masonry-body {
+    padding: 18px 20px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .masonry-tag {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--rust);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .masonry-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+  }
+  .masonry-desc {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.8;
+    flex: 1;
+    margin-bottom: 14px;
+  }
+  .masonry-insight {
+    background: linear-gradient(135deg, rgba(122,158,126,0.08), rgba(122,158,126,0.03));
+    border-left: 3px solid var(--sage);
+    padding: 10px 14px;
+    font-size: 12px;
+    color: var(--sage-dark);
+    line-height: 1.7;
+    margin-bottom: 14px;
+    border-radius: 0 8px 8px 0;
+  }
+  .masonry-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .masonry-links a {
+    font-size: 11px;
+    color: var(--text-light);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(232,228,222,0.6);
+    transition: color 0.2s;
+  }
+  .masonry-links a:last-child { border-bottom: none; }
+  .masonry-links a:hover { color: var(--rust); }
+  .link-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--sage);
+    flex-shrink: 0;
+  }
+
+  /* ========== 趋势关键词 ========== */
+  .keywords-section {
+    max-width: 1100px;
+    margin: 64px auto 0;
+    padding: 0 24px;
+  }
+  .keywords-card {
+    background: var(--charcoal);
+    border-radius: 20px;
+    padding: 40px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .keywords-card::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(122,158,126,0.12);
+  }
+  .keywords-label {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .keywords-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .kw-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.9);
+    font-size: 14px;
+    padding: 8px 18px;
+    border-radius: 24px;
+    transition: background 0.2s, transform 0.2s;
+    cursor: default;
+  }
+  .kw-tag:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); }
+  .kw-tag .emoji { font-size: 15px; }
+  .kw-tag.accent { background: rgba(196,112,79,0.3); border-color: rgba(196,112,79,0.5); }
+
+  /* ========== 近期预告 ========== */
+  .upcoming-section {
+    max-width: 1100px;
+    margin: 64px auto 0;
+    padding: 0 24px 80px;
+  }
+  .upcoming-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  .upcoming-card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 24px 20px;
+    border: 1px solid var(--border);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .upcoming-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.07); }
+  .upcoming-date {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--rust);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .upcoming-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1.5;
+  }
+
+  /* ========== 报脚 ========== */
+  .footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    padding: 32px 24px;
+    font-size: 12px;
+    line-height: 2;
+  }
+  .footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  .footer a:hover { color: var(--sage-light); }
+  .footer-brand {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 8px;
+  }
+
+  /* ========== 响应式 ========== */
+  @media (max-width: 900px) {
+    .cover-title { font-size: 36px; }
+    .cover-content { padding: 32px 32px 40px; }
+    .headline-card { grid-template-columns: 1fr; }
+    .headline-img { height: 260px; }
+    .headline-body { padding: 24px 24px; }
+    .headline-title { font-size: 22px; }
+    .masonry-grid { columns: 2; }
+    .upcoming-grid { grid-template-columns: repeat(2, 1fr); }
+    .keywords-card { padding: 28px 28px; }
+  }
+  @media (max-width: 600px) {
+    .cover { height: 400px; }
+    .cover-title { font-size: 28px; }
+    .cover-content { padding: 24px 20px 32px; }
+    .cover-badge { top: 16px; right: 20px; }
+    .headline-products { grid-template-columns: 1fr; }
+    .masonry-grid { columns: 1; }
+    .masonry-grid { padding: 0 16px; }
+    .section-header h2 { font-size: 22px; }
+    .upcoming-grid { grid-template-columns: 1fr; }
+    .keywords-card { padding: 24px 20px; }
+    .keywords-list { gap: 8px; }
+    .kw-tag { font-size: 13px; padding: 7px 14px; }
+    .topbar { padding: 8px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 顶栏 -->
+<div class="topbar">
+  <span>Industrial Design · Home Living · Consumer Electronics</span>
+  <span>第 02 期 · 每日出版</span>
+  <div>
+    <a href="https://www.yankodesign.com/" target="_blank">Yanko Design</a>&nbsp;·&nbsp;
+    <a href="https://www.core77.com/" target="_blank">Core77</a>&nbsp;·&nbsp;
+    <a href="https://www.apple.com.cn/newsroom/" target="_blank">Apple</a>
+  </div>
+</div>
+
+<!-- 封面大图 -->
+<div class="cover">
+  <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=85" alt="Design Cover">
+  <div class="cover-overlay"></div>
+  <div class="cover-badge">TODAY</div>
+  <div class="cover-content">
+    <div class="cover-date">2026年3月23日 · 星期一</div>
+    <h1 class="cover-title">设计趋势日报<br><span>每日更新</span></h1>
+    <p class="cover-subtitle">工业设计 · 家居设计 · 消费电子 · 今日重磅：华为春季发布会开幕</p>
+  </div>
+</div>
+
+<!-- 今日头条 -->
+<div class="headline-section">
+  <div class="headline-card">
+    <div class="headline-img">
+      <img src="https://images.unsplash.com/photo-1632661674596-df8be59a8a34?w=800&q=80" alt="华为发布会">
+      <div class="headline-img-tag">📌 今日头条</div>
+    </div>
+    <div class="headline-body">
+      <div class="headline-category">消费电子 · 重磅发布</div>
+      <h2 class="headline-title">华为春季全场景新品发布会<br>今天下午 14:30 正式开幕</h2>
+      <p class="headline-desc">主题「春启新程，势启新篇」，产品线横跨手机、AI眼镜、智能穿戴、智慧出行，鸿蒙生态年度最强阵容登场。</p>
+      <div class="headline-products">
+        <div class="hl-product">
+          <strong>📱 畅享90 Pro Max</strong>
+          麒麟8芯片 · 8000mAh超大电池
+        </div>
+        <div class="hl-product">
+          <strong>🤖 华为AI眼镜</strong>
+          AI交互 · 轻薄穿戴 · 鸿蒙接入
+        </div>
+        <div class="hl-product">
+          <strong>⌚ Watch GT Runner 2</strong>
+          EKG心电图 · 心率变异性监测
+        </div>
+        <div class="hl-product">
+          <strong>🚗 问界新款</strong>
+          鸿蒙智行 · 全场景协同
+        </div>
+      </div>
+      <div class="headline-cta">
+        <a href="https://news.qq.com/rain/a/20260323A06ONQ00" target="_blank" class="btn-primary">📰 完整报道 →</a>
+        <a href="https://mobile.pconline.com.cn/2116/21163612.html" target="_blank" class="btn-secondary">📱 畅享90详情</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 消费电子版块 -->
+<div class="section-header">
+  <h2>消费电子</h2>
+  <div class="section-header-line"></div>
+  <span class="section-header-sub">Consumer Electronics</span>
+</div>
+
+<div class="masonry-grid">
+
+  <!-- 小米SU7 -->
+  <div class="masonry-item">
+    <img class="masonry-img" src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80" alt="小米SU7" style="height:200px; object-fit:cover;">
+    <div class="masonry-body">
+      <div class="masonry-tag">🚗 新能源汽车</div>
+      <h3 class="masonry-title">小米新一代SU7正式上市，21.99万元起</h3>
+      <p class="masonry-desc">3月19日晚，雷军在北京小米汽车工厂发布新一代SU7，提供标准版/Pro版/Max版三款配置，售价21.99万-30.39万元，续航和性能均大幅升级。</p>
+      <div class="masonry-insight">🎨 设计亮点：4大色系9款外饰颜色，流线型车身语言再度进化，6款轮毂+4款内饰，个性化程度极高。MiMo AI大模型三连发宣告小米硬件全面AI化。</div>
+      <div class="masonry-links">
+        <a href="https://news.qq.com/rain/a/20260319A08KOX00" target="_blank"><span class="link-dot"></span>红星资本局·SU7上市报道</a>
+        <a href="https://www.ithome.com/0/930/760.htm" target="_blank"><span class="link-dot"></span>IT之家·9款配色官图</a>
+        <a href="https://cn.chinadaily.com.cn/a/202603/20/WS69bcf34ea310942cc49a4239.html" target="_blank"><span class="link-dot"></span>中国日报·小米AI大模型</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 三星S26 -->
+  <div class="masonry-item">
+    <img class="masonry-img" src="https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=600&q=80" alt="三星Galaxy S26" style="height:200px; object-fit:cover;">
+    <div class="masonry-body">
+      <div class="masonry-tag">📱 智能手机</div>
+      <h3 class="masonry-title">三星Galaxy S26：全球首款防窥屏手机</h3>
+      <p class="masonry-desc">S26系列于3月11日全球多国同步发售，S26 Ultra最大亮点为业界首款商用防窥屏，可针对特定App智能开启隐私保护模式。</p>
+      <div class="masonry-insight">💡 设计观察：隐私设计从"功能"变成"产品形态"，隐私设计或成2026年旗舰手机新标配，开创了智能手机的新竞争维度。</div>
+      <div class="masonry-links">
+        <a href="https://zhuanlan.zhihu.com/p/2019109208583349311" target="_blank"><span class="link-dot"></span>知乎·3月手机汇总</a>
+        <a href="https://mobile.zol.com.cn/1149/11498632_all.html" target="_blank"><span class="link-dot"></span>中关村在线·S26体验</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 苹果 -->
+  <div class="masonry-item">
+    <img class="masonry-img" src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600&q=80" alt="苹果MacBook Air" style="height:200px; object-fit:cover;">
+    <div class="masonry-body">
+      <div class="masonry-tag">💻 电脑设备</div>
+      <h3 class="masonry-title">苹果MacBook Air M5 / iPhone 17e 同台登场</h3>
+      <p class="masonry-desc">3月3日苹果官网静默发布MacBook Air M5，M5芯片性能大幅提升；iPhone 17e（A19芯片+灵动岛）同步推出，入门价旗舰体验。</p>
+      <div class="masonry-insight">🎨 设计语言：铝金属极简机身全面延续，灵动岛设计向全产品线下沉，苹果设计体系高度统一，折叠屏iPhone有望年内亮相。</div>
+      <div class="masonry-links">
+        <a href="https://www.apple.com.cn/newsroom/2026/03/apple-introduces-the-new-macbook-air-with-m5/" target="_blank"><span class="link-dot"></span>Apple中国官网·MacBook Air</a>
+        <a href="https://finance.sina.com.cn/tech/mobile/n/n/2026-03-03/doc-inhptqxc0631459.shtml" target="_blank"><span class="link-dot"></span>新浪数码·MacBook Air M5</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 戴森 -->
+  <div class="masonry-item">
+    <img class="masonry-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="戴森吸尘器" style="height:200px; object-fit:cover;">
+    <div class="masonry-body">
+      <div class="masonry-tag">🏠 智能家居</div>
+      <h3 class="masonry-title">戴森2026新品：史上最大规模更新，AI清洁登场</h3>
+      <p class="masonry-desc">2026年1月26日，戴森公布五款全新吸尘器机型，带来自清空底座和AI清洁功能。Spot+Scrub AI清洁机器人全球发售，可自动识别污渍类型并切换清洁模式。</p>
+      <div class="masonry-insight">🤖 真正实现"放手式"家务体验，AI让清洁从主动操作变为被动享受，这是戴森多年来最大规模的年度更新。</div>
+      <div class="masonry-links">
+        <a href="https://k.sina.cn/article_7879848900_1d5acf3c401902olna.html" target="_blank"><span class="link-dot"></span>新浪科技·戴森2026新品</a>
+        <a href="https://www.ellechina.com/deco/a69657297/aidyson/" target="_blank"><span class="link-dot"></span>Elle DECO·戴森AI清洁机器人</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- LOFIC影像 -->
+  <div class="masonry-item">
+    <img class="masonry-img" src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80" alt="手机影像" style="height:200px; object-fit:cover;">
+    <div class="masonry-body">
+      <div class="masonry-tag">📸 影像技术</div>
+      <h3 class="masonry-title">索尼·三星·苹果共同布局LOFIC，影像新赛点</h3>
+      <p class="masonry-desc">LOFIC（横向溢出积分电容）传感器让单张照片即可完整呈现动态范围，无需多帧合成，对视频实时拍摄具有革命性意义。</p>
+      <div class="masonry-insight">💡 索尼/三星/苹果三大巨头罕见同步押注同一技术路线，2026年手机影像竞争将迎来底层硬件革新。</div>
+      <div class="masonry-links">
+        <a href="https://www.msn.cn/zh-cn/tech/baodong/lofic/ar-AA1Q8pXz" target="_blank"><span class="link-dot"></span>MSN·LOFIC技术详解</a>
+        <a href="https://www.yankodesign.com/2026/03/03/yanko-designs-best-of-mwc-2026-when-engineering-gets-obsessive/" target="_blank"><span class="link-dot"></span>Yanko Design·MWC 2026最佳</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 家居设计版块 -->
+<div class="section-header">
+  <h2>家居设计</h2>
+  <div class="section-header-line"></div>
+  <span class="section-header-sub">Home Living Design</span>
+</div>
+
+<div class="masonry-grid">
+
+  <!-- CMF趋势LAB -->
+  <div class="masonry-item">
+    <img class="masonry-img" src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80" alt="CMF趋势LAB" style="height:220px; object-fit:cover;">
+    <div class="masonry-body">
+      <div class="masonry-tag">🏠 材料趋势</div>
+      <h3 class="masonry-title">CMF趋势LAB_2026 广州家博会进行中</h3>
+      <p class="masonry-desc">3月18-21日（第一期）/ 3月28-31日（第二期），YANG DESIGN策展，100件创新材料样本集中亮相，聚焦"在不确定时代，为设计建立新的秩序"。</p>
+      <div class="masonry-insight">🎨 四大CMF趋势：①秩序感重建 ②自然感回归（有机肌理/生物基材料） ③情绪化色彩 ④AI赋能材料（数字工具加速CMF决策）</div>
+      <div class="masonry-links">
+        <a href="https://www.xhby.net/content/s69b7a150e4b00d434b764568.html" target="_blank"><span class="link-dot"></span>现代快报·CMF趋势LAB亮点</a>
+        <a href="https://zhuanlan.zhihu.com/p/2015755424096355579" target="_blank"><span class="link-dot"></span>知乎·100种新材料样本</a>
+        <a href="https://www.sohu.com/a/977516698_120539363" target="_blank"><span class="link-dot"></span>搜狐·中国家博会CMF特展</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 家居行业五大趋势 -->
+  <div class="masonry-item">
+    <img class="masonry-img" src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="家居设计趋势" style="height:220px; object-fit:cover;">
+    <div class="masonry-body">
+      <div class="masonry-tag">🏡 室内设计</div>
+      <h3 class="masonry-title">2026家居行业五大趋势：情绪价值驱动消费新浪潮</h3>
+      <p class="masonry-desc">存量翻新需求爆发，AI深度渗透家庭场景，Z世代将"让自己舒服"置于功能之前——2026年家居行业站在产业变革关键节点。</p>
+      <div class="masonry-insight">🔑 五大趋势：①存量翻新 ②AI智能家居升级 ③情绪价值消费 ④可持续材料主流化 ⑤模块化多功能家具（小户型刚需）</div>
+      <div class="masonry-links">
+        <a href="https://k.sina.cn/article_7857201856_1d45362c0019039bm6.html" target="_blank"><span class="link-dot"></span>新浪财经·家居行业2026突破指南</a>
+        <a href="https://www.oppoliahome.com/zh-CN/2026%E5%B9%B4%E5%AE%A4%E5%86%85%E8%AE%BE%E8%AE%A1%E8%B6%8B%E5%8A%BF/" target="_blank"><span class="link-dot"></span>Oppolia·室内设计趋势</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 工业设计版块 -->
+<div class="section-header">
+  <h2>工业设计前沿</h2>
+  <div class="section-header-line"></div>
+  <span class="section-header-sub">Industrial Design Frontier</span>
+</div>
+
+<div class="masonry-grid">
+
+  <!-- Core77 -->
+  <div class="masonry-item">
+    <img class="masonry-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Core77" style="height:180px; object-fit:cover; filter: brightness(0.85);">
+    <div class="masonry-body">
+      <div class="masonry-tag">🏆 设计奖项</div>
+      <h3 class="masonry-title">Core77 设计奖2026 · 评审视角系列</h3>
+      <p class="masonry-desc">Core77本周连续发布评审专访系列，Vineet Thuvara（MIT）提醒行业警惕AI时代形式与功能的失衡；Yuko Takagi分享"将复杂化为清晰"的设计哲学。</p>
+      <div class="masonry-insight">⭐ 今年奖项特别关注多学科创新与可持续设计，Irene Guerrieri呼吁设计师以同理心连接内心童真。</div>
+      <div class="masonry-links">
+        <a href="https://www.core77.com/" target="_blank"><span class="link-dot"></span>Core77 官方网站</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Yanko Design -->
+  <div class="masonry-item">
+    <img class="masonry-img" src="https://images.unsplash.com/photo-1558655146-364adaf1fcc9?w=600&q=80" alt="Yanko Design" style="height:180px; object-fit:cover; filter: brightness(0.85);">
+    <div class="masonry-body">
+      <div class="masonry-tag">📐 设计媒体</div>
+      <h3 class="masonry-title">Yanko Design · MWC 2026设计盘点</h3>
+      <p class="masonry-desc">"工程偏执型设计"成为新主旋律：精密度 > 参数堆砌。"点头式手机"等新交互形态亮相，探索超越矩形屏幕的可能。</p>
+      <div class="masonry-insight">📱 Nothing Phone (a)：平价旗舰 + 5天续航，极简主义持续发力。设计正向"人本体验"回归。</div>
+      <div class="masonry-links">
+        <a href="https://www.yankodesign.com/2026/03/03/yanko-designs-best-of-mwc-2026-when-engineering-gets-obsessive/" target="_blank"><span class="link-dot"></span>Yanko Design·MWC 2026最佳</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CMF预测 -->
+  <div class="masonry-item">
+    <img class="masonry-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="CMF趋势" style="height:180px; object-fit:cover; filter: brightness(0.85);">
+    <div class="masonry-body">
+      <div class="masonry-tag">🎨 CMF预测</div>
+      <h3 class="masonry-title">2026春夏CMF设计趋势预测</h3>
+      <p class="masonry-desc">popcmf.com 3月9日发布的年度预测：流行色以自然大地色系为主，生物基材料和可回收纤维双向渗透消费电子与家居。</p>
+      <div class="masonry-insight">✨ 微纹理表面处理（Micro-texture）成高端品质标识；AI数字工具大幅缩短CMF决策周期。</div>
+      <div class="masonry-links">
+        <a href="https://www.popcmf.com/" target="_blank"><span class="link-dot"></span>popcmf.com 趋势预测</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 趋势关键词 -->
+<div class="keywords-section">
+  <div class="keywords-card">
+    <div class="keywords-label">TODAY'S KEYWORDS</div>
+    <div class="keywords-list">
+      <span class="kw-tag accent"><span class="emoji">🤖</span> AI交互穿戴</span>
+      <span class="kw-tag"><span class="emoji">🔒</span> 防窥屏设计</span>
+      <span class="kw-tag accent"><span class="emoji">📸</span> LOFIC影像革命</span>
+      <span class="kw-tag"><span class="emoji">🌿</span> CMF自然材料</span>
+      <span class="kw-tag"><span class="emoji">💛</span> 情绪化色彩</span>
+      <span class="kw-tag accent"><span class="emoji">🏗️</span> 秩序感重建</span>
+      <span class="kw-tag"><span class="emoji">⚙️</span> 工程偏执设计</span>
+      <span class="kw-tag"><span class="emoji">♻️</span> 可持续材料</span>
+    </div>
+  </div>
+</div>
+
+<!-- 近期预告 -->
+<div class="upcoming-section">
+  <div class="section-header" style="margin-top:0; padding-bottom:20px;">
+    <h2>近期值得关注</h2>
+    <div class="section-header-line"></div>
+  </div>
+  <div class="upcoming-grid">
+    <div class="upcoming-card">
+      <div class="upcoming-date">今日 14:30</div>
+      <div class="upcoming-title">华为春季全场景新品发布会</div>
+    </div>
+    <div class="upcoming-card">
+      <div class="upcoming-date">3月28-31日</div>
+      <div class="upcoming-title">CMF趋势LAB第二期·广州家博会</div>
+    </div>
+    <div class="upcoming-card">
+      <div class="upcoming-date">2026年中</div>
+      <div class="upcoming-title">苹果WWDC（折叠屏或有进展）</div>
+    </div>
+    <div class="upcoming-card">
+      <div class="upcoming-date">2026下半年</div>
+      <div class="upcoming-title">三星Galaxy Z折叠屏新品</div>
+    </div>
+  </div>
+</div>
+
+<!-- 报脚 -->
+<footer class="footer">
+  <div class="footer-brand">设计趋势日报</div>
+  <p>Industrial Design · Home Living · Consumer Electronics · 第02期 · 2026年3月23日</p>
+  <p style="margin-top:8px;">数据来源：<a href="https://www.yankodesign.com/" target="_blank">Yanko Design</a> · <a href="https://www.core77.com/" target="_blank">Core77</a> · <a href="https://www.ithome.com/" target="_blank">IT之家</a> · <a href="https://36kr.com/" target="_blank">36氪</a> · <a href="https://news.qq.com/" target="_blank">腾讯新闻</a> · <a href="https://www.apple.com.cn/newsroom/" target="_blank">Apple Newsroom</a></p>
+  <p style="margin-top:8px; opacity:0.4;">由 AI 虾虾 · WorkBuddy 自动生成 | 内容基于公开资讯整理</p>
+</footer>
+
+</body>
+</html>
