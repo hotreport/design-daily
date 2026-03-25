@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>设计趋势日报 · 2026年3月24日</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Noto+Sans+SC:wght@300;400;500&display=swap');
+
+    :root {
+      --cream: #FAF7F2;
+      --sage: #7A9E7E;
+      --terracotta: #C2714F;
+      --dark: #2C2C2C;
+      --mid: #6B6B6B;
+      --light: #E8E2D9;
+      --card-bg: #FFFFFF;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      color: var(--dark);
+      font-family: 'Noto Sans SC', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      height: 60vh;
+      min-height: 380px;
+      background: linear-gradient(135deg, #2C3E50 0%, #4A6741 50%, #C2714F 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 2rem;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-tag {
+      font-size: .75rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+      margin-bottom: .8rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: .6rem;
+    }
+    .hero-sub {
+      font-size: .9rem;
+      color: rgba(255,255,255,.65);
+      letter-spacing: .1em;
+    }
+
+    /* ── Layout ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Headline Card ── */
+    .headline-section { margin: -3rem auto 0; max-width: 900px; padding: 0 1.5rem; position: relative; z-index: 10; }
+    .headline-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 2.4rem 2.8rem;
+      box-shadow: 0 8px 40px rgba(0,0,0,.12);
+      border-left: 5px solid var(--terracotta);
+    }
+    .headline-card .badge {
+      display: inline-block;
+      background: var(--terracotta);
+      color: #fff;
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: .3rem .9rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+    }
+    .headline-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      margin-bottom: .8rem;
+      color: var(--dark);
+    }
+    .headline-card p { color: var(--mid); font-size: .95rem; }
+    .huawei-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: .88rem; }
+    .huawei-table th { background: var(--light); padding: .6rem 1rem; text-align: left; font-weight: 500; }
+    .huawei-table td { padding: .6rem 1rem; border-bottom: 1px solid var(--light); }
+    .huawei-table tr:last-child td { border-bottom: none; }
+    .insight-box {
+      background: linear-gradient(135deg, #f0f7f0, #faf7f0);
+      border-radius: 10px;
+      padding: 1rem 1.4rem;
+      margin-top: 1.2rem;
+      font-size: .9rem;
+      color: var(--sage);
+      border-left: 3px solid var(--sage);
+    }
+
+    /* ── Section title ── */
+    .section { padding: 3rem 0 1rem; }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--dark);
+      margin-bottom: 1.6rem;
+      padding-bottom: .6rem;
+      border-bottom: 2px solid var(--light);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .section-title span { font-size: 1.3rem; }
+
+    /* ── Grid ── */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.4rem; }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 1.6rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,.06);
+      transition: transform .25s, box-shadow .25s;
+      border-top: 3px solid var(--light);
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,.1); }
+    .card.sage { border-top-color: var(--sage); }
+    .card.terra { border-top-color: var(--terracotta); }
+
+    .card-label {
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: .5rem;
+    }
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      margin-bottom: .7rem;
+      color: var(--dark);
+    }
+    .card p { font-size: .88rem; color: var(--mid); line-height: 1.7; }
+    .card ul { padding-left: 1.2rem; font-size: .88rem; color: var(--mid); line-height: 1.9; }
+
+    /* ── Trend Table ── */
+    .trend-table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 14px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,.06); font-size: .9rem; }
+    .trend-table th { background: var(--sage); color: #fff; padding: .8rem 1.2rem; text-align: left; font-weight: 500; }
+    .trend-table td { padding: .8rem 1.2rem; border-bottom: 1px solid var(--light); color: var(--mid); }
+    .trend-table tr:last-child td { border-bottom: none; }
+    .trend-table tr:hover td { background: var(--cream); }
+
+    /* ── Quote ── */
+    .quote-section { padding: 3rem 0; }
+    .quote-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(420px, 1fr)); gap: 1.4rem; }
+    .quote-card {
+      background: linear-gradient(135deg, #4A6741, #2C3E50);
+      border-radius: 14px;
+      padding: 2rem 2.4rem;
+      color: #fff;
+    }
+    .quote-card blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      line-height: 1.7;
+      margin-bottom: .8rem;
+    }
+    .quote-card cite { font-size: .8rem; opacity: .7; }
+
+    /* ── Calendar ── */
+    .calendar-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 1.8rem 2rem;
+      box-shadow: 0 2px 16px rgba(0,0,0,.06);
+      margin-bottom: 3rem;
+    }
+    .cal-row { display: flex; align-items: flex-start; gap: 1.2rem; padding: .9rem 0; border-bottom: 1px solid var(--light); }
+    .cal-row:last-child { border-bottom: none; }
+    .cal-date { background: var(--terracotta); color: #fff; border-radius: 8px; padding: .4rem .8rem; font-size: .8rem; font-weight: 500; white-space: nowrap; min-width: 80px; text-align: center; }
+    .cal-info h4 { font-size: .95rem; font-weight: 500; color: var(--dark); margin-bottom: .2rem; }
+    .cal-info p { font-size: .82rem; color: var(--mid); }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,.5);
+      text-align: center;
+      padding: 2rem;
+      font-size: .8rem;
+    }
+    footer a { color: rgba(255,255,255,.7); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .headline-card { padding: 1.6rem; }
+      .quote-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <p class="hero-tag">Design Daily · 每日设计趋势</p>
+  <h1>设计趋势日报<br>2026年3月24日</h1>
+  <p class="hero-sub">工业设计 · 家居设计 · 消费电子</p>
+</section>
+
+<!-- 今日头条 -->
+<div class="headline-section">
+  <div class="headline-card">
+    <span class="badge">🔥 今日头条</span>
+    <h2>华为春季全场景发布会：HarmonyOS 6 重塑设计美学</h2>
+    <p>昨日（3月23日），华为在长沙举办"春启新程，势启新篇"春季全场景新品发布会，带来史上品类最全的一次集中亮相：</p>
+    <table class="huawei-table">
+      <thead><tr><th>产品</th><th>设计亮点</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Mate 80 Pro Max 风驰版</strong></td><td>新配色+全新材质，高端旗舰设计语言延续</td></tr>
+        <tr><td><strong>WATCH GT Runner 2</strong></td><td>专业运动表盘设计，强化户外高辨识度</td></tr>
+        <tr><td><strong>WATCH Ultimate 2 旷野绿</strong></td><td>极限材质+新配色，自然与科技的平衡美学</td></tr>
+        <tr><td><strong>MatePad Pro 12.2"</strong></td><td>大屏生产力，¥4499起，3月28日开售</td></tr>
+        <tr><td><strong>MateView GT 显示器</strong></td><td>曲面电竞屏，华为生态新外设扩充</td></tr>
+      </tbody>
+    </table>
+    <div class="insight-box">💡 设计关键词：HarmonyOS 6 全新视觉系统再升级，整体产品线设计语言更加统一，"生活生态化"的设计思路贯穿始终。</div>
+  </div>
+</div>
+
+<!-- 消费电子 -->
+<div class="container">
+  <section class="section">
+    <h2 class="section-title"><span>📱</span> 消费电子</h2>
+    <div class="grid">
+      <div class="card terra">
+        <p class="card-label">三星 · Galaxy S26</p>
+        <h3>防窥屏走进现实</h3>
+        <p>三星 S26 Ultra 搭载全球首块原生硬件防窥屏，从旁观角度无法窥视屏幕内容。全系采用 19.5:9 统一比例，设计语言更加简洁一致。售价 ¥6999 起。</p>
+        <div class="insight-box" style="margin-top:.8rem">🔍 隐私保护从"软件滤镜"进化为"硬件级解决方案"，开辟隐私设计新赛道。</div>
+      </div>
+      <div class="card sage">
+        <p class="card-label">设计洞察</p>
+        <h3>隐私即设计需求</h3>
+        <p>2026年最值得关注的设计驱动力之一：用户对隐私的关注已从软件层面扩展到硬件设计层面。防窥屏的普及可能引发旗舰手机的新一轮设计竞赛。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 家居设计 -->
+  <section class="section">
+    <h2 class="section-title"><span>🛋️</span> 家居设计</h2>
+    <div class="grid">
+      <div class="card sage">
+        <p class="card-label">CMF趋势LAB_2026 · 广州</p>
+        <h3>四大 CMF 趋势方向</h3>
+        <ul>
+          <li>🌿 <strong>有机自然</strong> — 天然纹理、仿生材质，强调材料本真感</li>
+          <li>🔁 <strong>循环再生</strong> — 可回收材料、降碳工艺进入主流</li>
+          <li>✨ <strong>感官沉浸</strong> — 微肌理、哑光 vs. 高光对比</li>
+          <li>🤖 <strong>数字融合</strong> — 数字化工艺介入传统材料</li>
+        </ul>
+      </div>
+      <div class="card terra">
+        <p class="card-label">米兰国际家具展 · 预热</p>
+        <h3>第64届 · 4月21-26日</h3>
+        <p>32个国家、1900余家参展商。展会主席 Maria Porro："我们不是在追逐市场，我们是在塑造市场。"是观察2026全球家居设计风向的最佳窗口。</p>
+      </div>
+    </div>
+
+    <div style="margin-top:1.4rem">
+      <h3 style="font-family:'Playfair Display',serif;margin-bottom:1rem;color:var(--dark)">2026室内设计趋势速览</h3>
+      <table class="trend-table">
+        <thead><tr><th>趋势</th><th>关键词</th></tr></thead>
+        <tbody>
+          <tr><td>极简主义退潮</td><td>从"更少"到"更丰富、更舒适"</td></tr>
+          <tr><td>大胆色彩回归</td><td>纯白中性色让位给饱和暖色、大地色</td></tr>
+          <tr><td>深色木材复兴</td><td>胡桃木、深橡木纹成家居主流</td></tr>
+          <tr><td>最大化主义崛起</td><td>混搭纹理、层叠色彩，强调个性表达</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 设计媒体 -->
+  <section class="section">
+    <h2 class="section-title"><span>🌐</span> 设计媒体动态</h2>
+    <div class="grid">
+      <div class="card">
+        <p class="card-label">Design Milk</p>
+        <h3>Sixpenny 纽约展厅焕新</h3>
+        <p>美国家具品牌 Sixpenny 完成布鲁克林旗舰展厅全面改造，从低调中性色系转向大胆印花与鲜明色彩。家居品牌正在用"设计叙事"取代简单的产品展示。</p>
+      </div>
+      <div class="card">
+        <p class="card-label">Yanko Design</p>
+        <h3>MWC 2026 设计精华</h3>
+        <p>"当工程走向痴迷（Obsessive Engineering），设计自然升华。" MemoMind 以打破传统形态的眼镜产品引发广泛关注。</p>
+      </div>
+      <div class="card">
+        <p class="card-label">Core77</p>
+        <h3>设计奖专访：创意 vs 技术</h3>
+        <p>设计领袖 Roman Gebhard 警惕"过度AI化"：科技服务于创造力，而非取代它。设计师应保持独立思维。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 今日洞察 -->
+  <section class="quote-section">
+    <div class="quote-grid">
+      <div class="quote-card">
+        <blockquote>"设计正在成为隐私的守护者。"</blockquote>
+        <cite>三星防窥屏的出现，意味着隐私保护已从软件扩展到硬件设计层面。隐私即设计需求，将是2026年最值得关注的设计驱动力之一。</cite>
+      </div>
+      <div class="quote-card" style="background: linear-gradient(135deg, #C2714F, #8B4513)">
+        <blockquote>"材料 = 故事。"</blockquote>
+        <cite>CMF趋势LAB传递信号：2026年消费者不只在意颜色好不好看，更关心材料"讲了什么故事"。可持续、可感知、可溯源，成为材料设计新三件套。</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- 近期事件 -->
+  <section>
+    <h2 class="section-title"><span>📅</span> 近期值得关注</h2>
+    <div class="calendar-card">
+      <div class="cal-row">
+        <span class="cal-date">3月28日</span>
+        <div class="cal-info">
+          <h4>华为 MatePad Pro / Mini 正式开售</h4>
+          <p>消费电子 · MatePad Pro 12.2" ¥4499起 / MatePad Mini 悦读版 ¥3299起</p>
+        </div>
+      </div>
+      <div class="cal-row">
+        <span class="cal-date">4月21-26日</span>
+        <div class="cal-info">
+          <h4>米兰国际家具展 + 设计周</h4>
+          <p>家居/工业设计 · 第64届，32国1900+参展商，2026全球家居设计风向标</p>
+        </div>
+      </div>
+      <div class="cal-row">
+        <span class="cal-date" style="background:var(--sage)">持续进行</span>
+        <div class="cal-info">
+          <h4>CMF趋势LAB_2026（广州）</h4>
+          <p>家居/材料设计 · 15国80余品牌，100件新材料样本</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p>设计趋势日报 · 2026年3月24日</p>
+  <p style="margin-top:.4rem">工业设计 · 家居设计 · 消费电子 | 每日10:00推送</p>
+</footer>
+
+</body>
+</html>
