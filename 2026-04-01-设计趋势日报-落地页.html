@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>设计趋势日报 · 2026年4月1日</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FAF7F2;
+      --warm-white: #FFFDF9;
+      --sage: #7D9E8A;
+      --sage-light: #A8C5B0;
+      --sage-dark: #5C7A66;
+      --terracotta: #C4785B;
+      --terracotta-light: #D4957A;
+      --terracotta-dark: #A35E42;
+      --text-dark: #2C2C2C;
+      --text-mid: #5A5A5A;
+      --text-light: #8A8A8A;
+      --divider: #E8E0D5;
+      --card-shadow: 0 4px 20px rgba(93, 107, 94, 0.10);
+      --card-hover-shadow: 0 8px 32px rgba(93, 107, 94, 0.18);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans SC', -apple-system, sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--divider);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--sage-dark);
+      letter-spacing: 0.5px;
+      padding: 18px 0;
+    }
+
+    .header-logo span { color: var(--terracotta); }
+
+    .header-date {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 60%, #4A6355 100%);
+      padding: 72px 40px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.80);
+      max-width: 520px;
+      margin: 0 auto 32px;
+      font-weight: 300;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .tag {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: white;
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(4px);
+      transition: background 0.3s;
+    }
+
+    .tag:hover { background: rgba(255,255,255,0.25); }
+
+    /* ── Headline ── */
+    .headline-section {
+      max-width: 1100px;
+      margin: -40px auto 0;
+      padding: 0 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .headline-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px 44px;
+      box-shadow: var(--card-shadow);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .headline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--terracotta);
+      color: white;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 18px;
+    }
+
+    .headline-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+
+    .headline-desc {
+      color: var(--text-mid);
+      font-size: 0.93rem;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .headline-source {
+      font-size: 0.78rem;
+      color: var(--text-light);
+    }
+
+    .headline-source a {
+      color: var(--sage-dark);
+      text-decoration: none;
+      border-bottom: 1px solid var(--sage-light);
+    }
+
+    .headline-awards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .award-card {
+      background: var(--cream);
+      border-radius: 14px;
+      padding: 22px 20px;
+      border: 1px solid var(--divider);
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .award-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--card-hover-shadow);
+    }
+
+    .award-icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .award-name {
+      font-weight: 600;
+      font-size: 0.88rem;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+
+    .award-desc {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    .award-tag {
+      display: inline-block;
+      background: var(--terracotta);
+      color: white;
+      font-size: 0.65rem;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-bottom: 6px;
+      letter-spacing: 1px;
+    }
+
+    /* ── Section titles ── */
+    .section-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 24px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+
+    .section-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--sage);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--divider);
+    }
+
+    /* ── Product grid ── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px 22px;
+      box-shadow: var(--card-shadow);
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: 1px solid transparent;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--card-hover-shadow);
+      border-color: var(--sage-light);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 130px;
+      border-radius: 10px;
+      background: var(--cream);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      overflow: hidden;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-brand {
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--sage-dark);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .product-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .product-feature {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    /* ── Trend insight table ── */
+    .trend-table {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+    }
+
+    .trend-table table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .trend-table th {
+      background: var(--sage);
+      color: white;
+      padding: 14px 24px;
+      text-align: left;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    .trend-table td {
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--divider);
+      font-size: 0.88rem;
+      vertical-align: top;
+    }
+
+    .trend-table tr:last-child td { border-bottom: none; }
+
+    .trend-table tr:nth-child(even) td { background: var(--cream); }
+
+    .trend-keyword {
+      font-weight: 600;
+      color: var(--terracotta-dark);
+    }
+
+    /* ── Article list ── */
+    .article-list { display: flex; flex-direction: column; gap: 18px; }
+
+    .article-card {
+      background: white;
+      border-radius: 16px;
+      padding: 28px 30px;
+      box-shadow: var(--card-shadow);
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 20px;
+      align-items: start;
+      transition: transform 0.25s;
+      border: 1px solid transparent;
+    }
+
+    .article-card:hover {
+      transform: translateX(4px);
+      border-color: var(--sage-light);
+    }
+
+    .article-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--sage-light);
+      line-height: 1;
+      padding-top: 2px;
+    }
+
+    .article-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .mini-tag {
+      background: var(--cream);
+      border: 1px solid var(--divider);
+      color: var(--text-mid);
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 0.72rem;
+    }
+
+    .article-source {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      white-space: nowrap;
+    }
+
+    .article-source a {
+      color: var(--sage-dark);
+      text-decoration: none;
+    }
+
+    /* ── CMF cards ── */
+    .cmf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 18px;
+    }
+
+    .cmf-card {
+      background: white;
+      border-radius: 16px;
+      padding: 26px 22px;
+      box-shadow: var(--card-shadow);
+      border-top: 4px solid var(--sage);
+      transition: transform 0.25s;
+    }
+
+    .cmf-card:nth-child(even) { border-top-color: var(--terracotta); }
+
+    .cmf-card:hover { transform: translateY(-4px); }
+
+    .cmf-icon { font-size: 2rem; margin-bottom: 12px; }
+
+    .cmf-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .cmf-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .cmf-items li {
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .cmf-items li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--sage);
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      background: var(--warm-white);
+      border-top: 1px solid var(--divider);
+      padding: 36px 40px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--sage-dark);
+      margin-bottom: 8px;
+    }
+
+    .footer-meta {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      margin-bottom: 14px;
+    }
+
+    .footer-divider {
+      width: 40px;
+      height: 3px;
+      background: var(--terracotta);
+      margin: 0 auto 14px;
+      border-radius: 2px;
+    }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: var(--text-light);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .site-header { padding: 0 20px; }
+      .hero { padding: 50px 20px 60px; }
+      .headline-card { grid-template-columns: 1fr; padding: 28px 24px; gap: 28px; }
+      .headline-awards { grid-template-columns: 1fr; }
+      .section-wrap { padding: 40px 20px; }
+      .article-card { grid-template-columns: auto 1fr; }
+      .article-source { display: none; }
+      .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-logo">虾虾<span>·</span>设计趋势</div>
+    <div class="header-date">2026年4月1日 · 星期三</div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-eyebrow">Design Trends Daily</div>
+    <h1 class="hero-title">设计趋势日报</h1>
+    <p class="hero-subtitle">索尼iF金奖 · 华为春季全场景发布 · 广州家具展CMF趋势 · 中国品牌集体突围</p>
+    <div class="hero-tags">
+      <span class="tag"># 索尼iF金奖</span>
+      <span class="tag"># 华为春季发布</span>
+      <span class="tag"># CMF趋势</span>
+      <span class="tag"># 可持续设计</span>
+      <span class="tag"># 东方美学</span>
+      <span class="tag"># AI×家居</span>
+    </div>
+  </section>
+
+  <!-- Headline -->
+  <div class="headline-section">
+    <div class="headline-card">
+      <div class="headline-left">
+        <div class="headline-badge">🏆 今日头条</div>
+        <h2 class="headline-title">索尼七项斩获2026年iF设计奖<br>两款金奖产品引领行业</h2>
+        <p class="headline-desc">
+          索尼在2026年iF设计奖评选中一举拿下七项大奖。INZONE H9 II电竞耳机以F1赛车轮毂为灵感，融合低侧压人体工学与可持续设计理念，荣获金奖。CineAltaV 2分体拓展系统则以功能为导向的专业电影摄影机设计，同样摘得金奖桂冠。
+        </p>
+        <p class="headline-source">来源：<a href="https://www.sony.com.cn/content/sonyportal/zh-cn/cms/newscenter/corporate/2026/20260331-01.html" target="_blank">索尼中国官网</a></p>
+      </div>
+      <div class="headline-awards">
+        <div class="award-card">
+          <div class="award-tag">🎖️ 金奖</div>
+          <div class="award-name">INZONE H9 II 电竞耳机</div>
+          <div class="award-desc">F1轮毂灵感 · 低侧压结构 · 可持续设计</div>
+        </div>
+        <div class="award-card">
+          <div class="award-tag">🎖️ 金奖</div>
+          <div class="award-name">CineAltaV 2 分体拓展系统</div>
+          <div class="award-desc">专业摄影机 · 功能导向 · 精密拨盘</div>
+        </div>
+        <div class="award-card">
+          <div class="award-name">INZONE M10S</div>
+          <div class="award-desc">OLED电竞显示器</div>
+        </div>
+        <div class="award-card">
+          <div class="award-name">RX1R III 黑卡旗舰</div>
+          <div class="award-desc">全画幅便携旗舰相机</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand News -->
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-icon">🏭</div>
+      <h2 class="section-title">品牌动向</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img">⌚</div>
+        <div class="product-brand">Huawei 华为</div>
+        <div class="product-name">WATCH GT Runner 2</div>
+        <div class="product-feature">F1赛车轮毂灵感，锯齿镂空结构，14天超长续航，2588元</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🖥️</div>
+        <div class="product-brand">Huawei 华为</div>
+        <div class="product-name">MateView GT 显示器</div>
+        <div class="product-feature">高刷新率 · 护眼技术 · 完善办公生态，1099元起</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">📱</div>
+        <div class="product-brand">Huawei 华为</div>
+        <div class="product-name">Mate 80 Pro Max 风驰版</div>
+        <div class="product-feature">麒麟9系芯片 · 主动散热风扇 · 8499元起</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">📺</div>
+        <div class="product-brand">Huawei 华为</div>
+        <div class="product-name">Vision 智慧屏6系列</div>
+        <div class="product-feature">65-98英寸 MiniLED · 2000尼特峰值亮度，3899元起</div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">🚗</div>
+        <div class="product-brand">AITO 问界</div>
+        <div class="product-name">问界M6 / 智界R7</div>
+        <div class="product-feature">新配色 · 896线激光雷达 · 乾崑ADS 4辅助系统</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- iF China -->
+  <div class="section-wrap" style="background: var(--warm-white); border-radius: 24px; max-width: 1100px; margin: 0 auto; padding: 60px 24px;">
+    <div class="section-header">
+      <div class="section-icon">🇨🇳</div>
+      <h2 class="section-title">中国品牌 · 2026 iF设计奖集体突围</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="article-list">
+      <div class="article-card">
+        <div class="article-number">01</div>
+        <div>
+          <div class="article-title">蔚来汽车 · 全链条自主创新</div>
+          <div class="article-tags">
+            <span class="mini-tag">新能源汽车</span><span class="mini-tag">品牌出海</span>
+          </div>
+        </div>
+        <div class="article-source"><a href="https://app.xinhuanet.com/news/article.html?articleId=20260326e2edf473b514453b9cbec54f86694bf0" target="_blank">新华网</a></div>
+      </div>
+      <div class="article-card">
+        <div class="article-number">02</div>
+        <div>
+          <div class="article-title">京东京造 · C2M数字化反向定制</div>
+          <div class="article-tags">
+            <span class="mini-tag">C2M</span><span class="mini-tag">消费电子</span><span class="mini-tag">零售</span>
+          </div>
+        </div>
+        <div class="article-source">消费大数据驱动</div>
+      </div>
+      <div class="article-card">
+        <div class="article-number">03</div>
+        <div>
+          <div class="article-title">欧定衬衫 · AI量身定制"一人一版"</div>
+          <div class="article-tags">
+            <span class="mini-tag">AI定制</span><span class="mini-tag">33部位×120参数</span><span class="mini-tag">商务男装</span>
+          </div>
+        </div>
+        <div class="article-source">智能调湿面料</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CMF Trends -->
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-icon">🎨</div>
+      <h2 class="section-title">广州CIFF 2026 · CMF趋势</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="cmf-grid">
+      <div class="cmf-card">
+        <div class="cmf-icon">🌿</div>
+        <div class="cmf-title">可持续绿色设计</div>
+        <ul class="cmf-items">
+          <li>再生陶瓷</li>
+          <li>竹纤维材料</li>
+          <li>循环制造工艺</li>
+          <li>户外家居场景化</li>
+        </ul>
+      </div>
+      <div class="cmf-card">
+        <div class="cmf-icon">🎋</div>
+        <div class="cmf-title">东方美学回归</div>
+        <ul class="cmf-items">
+          <li>新实木风格</li>
+          <li>自然材质极简化</li>
+          <li>情感共鸣设计</li>
+          <li>文化认同感</li>
+        </ul>
+      </div>
+      <div class="cmf-card">
+        <div class="cmf-icon">🤖</div>
+        <div class="cmf-title">AI×家居融合</div>
+        <ul class="cmf-items">
+          <li>AI智能床垫</li>
+          <li>感知自适应材料</li>
+          <li>全屋智能协同</li>
+          <li>健康生态闭环</li>
+        </ul>
+      </div>
+      <div class="cmf-card">
+        <div class="cmf-icon">👵</div>
+        <div class="cmf-title">适老化与细分</div>
+        <ul class="cmf-items">
+          <li>智能安全卫浴</li>
+          <li>功能美学并存</li>
+          <li>人宠共居场景</li>
+          <li>宠物家居新赛道</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trend Insights -->
+  <div class="section-wrap">
+    <div class="section-header">
+      <div class="section-icon">🔭</div>
+      <h2 class="section-title">趋势洞察</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="trend-table">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:30%">趋势方向</th>
+            <th>核心解读</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="trend-keyword">可持续从标签到价值</span></td>
+            <td>环保不再只是营销标签，正在成为用户可感知的产品核心价值</td>
+          </tr>
+          <tr>
+            <td><span class="trend-keyword">CMF成为竞争底层</span></td>
+            <td>色彩、材料、工艺构成产品差异化的底层逻辑</td>
+          </tr>
+          <tr>
+            <td><span class="trend-keyword">东方美学国际化</span></td>
+            <td>新实木、自然材质与极简设计在全球语境中引发共鸣</td>
+          </tr>
+          <tr>
+            <td><span class="trend-keyword">AI×设计深度融合</span></td>
+            <td>从功能叠加到感知自适应，智能材料进入产品主流</td>
+          </tr>
+          <tr>
+            <td><span class="trend-keyword">全品类生态协同</span></td>
+            <td>华为、苹果、小米等头部品牌均以生态战略构建护城河</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-brand">虾虾 · 设计趋势日报</div>
+    <div class="footer-divider"></div>
+    <p class="footer-meta">2026年4月1日 · 每日更新 · 工业设计 · 家居设计 · 消费电子</p>
+    <p class="footer-copy">© 2026 设计趋势日报 · 内容整理自公开资讯</p>
+  </footer>
+
+</body>
+</html>
