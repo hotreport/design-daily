@@ -33,7 +33,6 @@
       line-height: 1.6;
     }
 
-    /* ─── Hero Section ─── */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -42,14 +41,16 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      background: linear-gradient(160deg, #2D4A32 0%, #1A2E1C 40%, #3D2B1F 100%);
+      background:
+        linear-gradient(160deg, rgba(28, 54, 33, 0.82) 0%, rgba(22, 36, 24, 0.7) 45%, rgba(61, 43, 31, 0.82) 100%),
+        url("https://static.dezeen.com/uploads/2026/04/dsl-studio-romance-of-fragility-hero-2.jpg") center/cover no-repeat;
       padding: 60px 20px;
     }
 
     .hero-bg-pattern {
       position: absolute;
       inset: 0;
-      opacity: 0.07;
+      opacity: 0.08;
       background-image:
         radial-gradient(circle at 20% 30%, #7A9E7E 0%, transparent 50%),
         radial-gradient(circle at 80% 70%, #C4704A 0%, transparent 50%),
@@ -60,14 +61,14 @@
       position: relative;
       z-index: 1;
       text-align: center;
-      max-width: 800px;
+      max-width: 840px;
     }
 
     .hero-badge {
       display: inline-block;
-      background: rgba(122, 158, 126, 0.3);
-      border: 1px solid rgba(122, 158, 126, 0.6);
-      color: #A8C5AC;
+      background: rgba(122, 158, 126, 0.28);
+      border: 1px solid rgba(168, 197, 172, 0.7);
+      color: #D5E8D7;
       padding: 6px 18px;
       border-radius: 20px;
       font-size: 12px;
@@ -75,10 +76,11 @@
       text-transform: uppercase;
       margin-bottom: 20px;
       font-family: 'Inter', sans-serif;
+      backdrop-filter: blur(10px);
     }
 
     .hero-date {
-      color: rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.65);
       font-size: 14px;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -95,17 +97,18 @@
       line-height: 1.1;
       margin-bottom: 12px;
       letter-spacing: -1px;
+      text-shadow: 0 12px 36px rgba(0,0,0,0.28);
     }
 
     .hero-title span {
-      color: #C4704A;
+      color: #E7AF8D;
       display: block;
     }
 
     .hero-subtitle {
       font-family: 'Playfair Display', serif;
       font-size: clamp(16px, 3vw, 22px);
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.8);
       font-style: italic;
       margin-bottom: 40px;
     }
@@ -118,9 +121,9 @@
     }
 
     .hero-tag {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.88);
       padding: 8px 16px;
       border-radius: 30px;
       font-size: 13px;
@@ -136,7 +139,7 @@
       flex-direction: column;
       align-items: center;
       gap: 8px;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.5);
       font-size: 11px;
       letter-spacing: 2px;
       text-transform: uppercase;
@@ -145,7 +148,7 @@
     .scroll-line {
       width: 1px;
       height: 40px;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
       animation: scrollAnim 2s ease-in-out infinite;
     }
 
@@ -154,7 +157,6 @@
       50% { transform: scaleY(0.5); opacity: 0.4; }
     }
 
-    /* ─── 今日头条 ─── */
     .headline-section {
       max-width: 1200px;
       margin: 0 auto;
@@ -187,9 +189,10 @@
       border-radius: 24px;
       overflow: hidden;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 400px;
+      grid-template-columns: 1.1fr 0.9fr;
+      min-height: 430px;
       position: relative;
+      box-shadow: 0 18px 48px rgba(44, 34, 28, 0.12);
     }
 
     .headline-card::before {
@@ -197,21 +200,16 @@
       position: absolute;
       inset: 0;
       background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.05'/%3E%3Ccircle cx='50' cy='50' r='30' fill='none' stroke='%23ffffff' stroke-width='0.5' opacity='0.05'/%3E%3C/svg%3E") center/400px;
-      opacity: 0.3;
+      opacity: 0.2;
+      pointer-events: none;
     }
 
     .headline-visual {
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, rgba(122,158,126,0.2), rgba(196,112,74,0.2));
-    }
-
-    .headline-icon {
-      font-size: 120px;
-      opacity: 0.8;
-      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
+      min-height: 320px;
+      background:
+        linear-gradient(135deg, rgba(46, 70, 48, 0.28), rgba(25, 18, 14, 0.38)),
+        url("https://static.dezeen.com/uploads/2026/04/dsl-studio-romance-of-fragility-hero-2.jpg") center/cover no-repeat;
     }
 
     .headline-text {
@@ -229,7 +227,7 @@
       gap: 8px;
       background: rgba(196,112,74,0.3);
       border: 1px solid rgba(196,112,74,0.5);
-      color: #D4906A;
+      color: #F2C7AE;
       padding: 4px 14px;
       border-radius: 20px;
       font-size: 11px;
@@ -249,7 +247,7 @@
     }
 
     .headline-desc {
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.72);
       font-size: 15px;
       line-height: 1.7;
       margin-bottom: 28px;
@@ -270,7 +268,6 @@
     .headline-link:hover { gap: 12px; }
     .headline-link::after { content: '→'; }
 
-    /* ─── Pinterest Grid ─── */
     .grid-section {
       max-width: 1200px;
       margin: 0 auto;
@@ -301,31 +298,26 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.12);
     }
 
-    /* ── Card type A: cream ── */
     .card-cream {
       background: var(--cream-dark);
       border: 1px solid var(--light-gray);
     }
 
-    /* ── Card type B: sage ── */
     .card-sage {
       background: linear-gradient(145deg, var(--sage-dark), #3A5E3E);
       color: white;
     }
 
-    /* ── Card type C: terracotta ── */
     .card-terracotta {
       background: linear-gradient(145deg, var(--terracotta), #8A4A2A);
       color: white;
     }
 
-    /* ── Card type D: dark ── */
     .card-dark {
       background: linear-gradient(145deg, #2A2320, #1A1715);
       color: white;
     }
 
-    /* ── Card type E: pale terracotta ── */
     .card-pale {
       background: var(--terracotta-pale);
       border: 1px solid #E8C5B8;
@@ -334,20 +326,38 @@
     .card-image-area {
       height: 180px;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 72px;
+      align-items: flex-end;
+      justify-content: flex-start;
       position: relative;
       overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .card-image-area::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.34), rgba(0,0,0,0.04));
+      pointer-events: none;
     }
 
     .card-image-area.tall { height: 240px; }
     .card-image-area.short { height: 130px; }
 
-    .card-img-bg {
-      position: absolute;
-      inset: 0;
-      opacity: 0.15;
+    .image-label {
+      position: relative;
+      z-index: 1;
+      margin: 14px;
+      padding: 6px 12px;
+      border-radius: 16px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: #fff;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.24);
+      backdrop-filter: blur(8px);
     }
 
     .card-body {
@@ -363,9 +373,9 @@
       opacity: 0.7;
     }
 
-    .card-sage .card-category { color: #A8C5AC; }
+    .card-sage .card-category { color: #CBE0CE; }
     .card-terracotta .card-category { color: #F0C0A0; }
-    .card-dark .card-category { color: #9A9090; }
+    .card-dark .card-category { color: #B0A4A4; }
     .card-cream .card-category { color: var(--terracotta); }
     .card-pale .card-category { color: var(--terracotta); }
 
@@ -387,7 +397,7 @@
     }
 
     .card-cream .card-text, .card-pale .card-text { color: var(--warm-gray); }
-    .card-sage .card-text, .card-terracotta .card-text, .card-dark .card-text { color: rgba(255,255,255,0.65); }
+    .card-sage .card-text, .card-terracotta .card-text, .card-dark .card-text { color: rgba(255,255,255,0.68); }
 
     .card-tags {
       display: flex;
@@ -408,19 +418,15 @@
       color: var(--warm-gray);
     }
 
-    .card-sage .card-tag {
-      background: rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.8);
-    }
-
+    .card-sage .card-tag,
     .card-terracotta .card-tag {
       background: rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.8);
+      color: rgba(255,255,255,0.85);
     }
 
     .card-dark .card-tag {
       background: rgba(255,255,255,0.1);
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.68);
     }
 
     .card-divider {
@@ -458,7 +464,7 @@
     }
 
     .card-sage .trend-num { color: rgba(255,255,255,0.3); }
-    .card-dark .trend-num { color: rgba(255,255,255,0.2); }
+    .card-dark .trend-num { color: rgba(255,255,255,0.22); }
     .card-cream .trend-num { color: var(--light-gray); }
 
     .trend-text strong {
@@ -467,11 +473,10 @@
       margin-bottom: 2px;
     }
 
-    .card-sage .trend-text { color: rgba(255,255,255,0.8); }
-    .card-dark .trend-text { color: rgba(255,255,255,0.7); }
+    .card-sage .trend-text { color: rgba(255,255,255,0.84); }
+    .card-dark .trend-text { color: rgba(255,255,255,0.74); }
     .card-cream .trend-text { color: var(--warm-gray); }
 
-    /* ─── 品牌对比表 ─── */
     .brand-card {
       background: var(--cream-dark);
       border: 1px solid var(--light-gray);
@@ -479,6 +484,18 @@
       padding: 24px;
       break-inside: avoid;
       margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .brand-cover {
+      height: 180px;
+      border-radius: 16px;
+      margin-bottom: 18px;
+      background:
+        linear-gradient(135deg, rgba(20,20,20,0.28), rgba(20,20,20,0.48)),
+        url("https://vacuumwars.com/wp-content/uploads/2025/12/Dyson-2026-Update.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
     }
 
     .brand-table {
@@ -511,7 +528,6 @@
       white-space: nowrap;
     }
 
-    /* ─── 日历区块 ─── */
     .calendar-section {
       max-width: 1200px;
       margin: 0 auto;
@@ -571,7 +587,6 @@
       line-height: 1.5;
     }
 
-    /* ─── Footer ─── */
     footer {
       background: var(--charcoal);
       color: rgba(255,255,255,0.5);
@@ -593,28 +608,22 @@
       text-decoration: none;
     }
 
-    /* ─── Animations ─── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     .fade-up { animation: fadeUp 0.6s ease forwards; }
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
 
     @media (max-width: 768px) {
       .headline-card { grid-template-columns: 1fr; }
-      .headline-visual { display: none; }
+      .headline-visual { min-height: 260px; }
       .headline-text { padding: 36px 28px; }
     }
   </style>
 </head>
-
 <body>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-bg-pattern"></div>
     <div class="hero-content fade-up">
@@ -639,7 +648,6 @@
     </div>
   </section>
 
-  <!-- 今日头条 -->
   <section class="headline-section">
     <div class="section-label">
       <span class="section-label-text">Today's Headline</span>
@@ -647,14 +655,12 @@
     </div>
     <a href="https://www.dezeen.com/2026/04/02/eighteen-unmissable-highlights-milan-design-week-2026/" target="_blank" style="text-decoration:none;">
       <div class="headline-card">
-        <div class="headline-visual">
-          <div class="headline-icon">🏛️</div>
-        </div>
+        <div class="headline-visual"></div>
         <div class="headline-text">
           <div class="headline-eyebrow">🔥 焦点事件</div>
           <h2 class="headline-title">米兰设计周 2026<br/>倒计时14天</h2>
           <p class="headline-desc">
-            第64届 Salone del Mobile 将于4月20–26日开幕，Zaha Hadid × Audi、Kelly Wearstler × H&M、Ai Weiwei × Rubelli等重磅合作亮相，全球最具影响力的设计盛宴即将开启。本届新增"Salone Raritas"收藏设计单元，700余位青年设计师同台竞艳。
+            第64届 Salone del Mobile 将于4月20–26日开幕，Zaha Hadid × Audi、Kelly Wearstler × H&M、Ai Weiwei × Rubelli等重磅合作亮相，全球最具影响力的设计盛宴即将开启。本届新增“Salone Raritas”收藏设计单元，700余位青年设计师同台竞艳。
           </p>
           <span class="headline-link">查看全部亮点</span>
         </div>
@@ -662,7 +668,6 @@
     </a>
   </section>
 
-  <!-- Pinterest 卡片墙 -->
   <section class="grid-section">
     <div class="section-label">
       <span class="section-label-text">Design Cards</span>
@@ -671,35 +676,19 @@
 
     <div class="masonry-grid">
 
-      <!-- Card 1: 米兰五大趋势 -->
       <a href="https://furniguide.shop/en/blog/milan-design-week-2026-furniture-trends/" target="_blank" class="card card-sage">
-        <div class="card-image-area tall" style="background: linear-gradient(135deg, rgba(122,158,126,0.3), rgba(60,100,65,0.5));">
-          <span>🌿</span>
+        <div class="card-image-area tall" style="background-image: linear-gradient(135deg, rgba(55,82,58,0.25), rgba(31,46,33,0.45)), url('https://static.dezeen.com/uploads/2026/04/dsl-studio-romance-of-fragility-hero-2.jpg');">
+          <span class="image-label">Salone Preview</span>
         </div>
         <div class="card-body">
           <div class="card-category">家居设计 · Salone 2026</div>
           <h3 class="card-title">米兰设计周<br/>五大家具趋势</h3>
           <ul class="trend-list">
-            <li>
-              <span class="trend-num">01</span>
-              <div class="trend-text"><strong>可持续材料创新</strong>回收塑料、天然纤维占C位</div>
-            </li>
-            <li>
-              <span class="trend-num">02</span>
-              <div class="trend-text"><strong>有机曲线轮廓</strong>圆润形态，减少视觉紧张感</div>
-            </li>
-            <li>
-              <span class="trend-num">03</span>
-              <div class="trend-text"><strong>手工艺复兴</strong>"制造者之手"美学升温</div>
-            </li>
-            <li>
-              <span class="trend-num">04</span>
-              <div class="trend-text"><strong>深色木材 + Live-Edge</strong>原生边缘工艺强势流行</div>
-            </li>
-            <li>
-              <span class="trend-num">05</span>
-              <div class="trend-text"><strong>室内外一体化</strong>耐候材料无缝过渡</div>
-            </li>
+            <li><span class="trend-num">01</span><div class="trend-text"><strong>可持续材料创新</strong>回收塑料、天然纤维占C位</div></li>
+            <li><span class="trend-num">02</span><div class="trend-text"><strong>有机曲线轮廓</strong>圆润形态，减少视觉紧张感</div></li>
+            <li><span class="trend-num">03</span><div class="trend-text"><strong>手工艺复兴</strong>“制造者之手”美学升温</div></li>
+            <li><span class="trend-num">04</span><div class="trend-text"><strong>深色木材 + Live-Edge</strong>原生边缘工艺强势流行</div></li>
+            <li><span class="trend-num">05</span><div class="trend-text"><strong>室内外一体化</strong>耐候材料无缝过渡</div></li>
           </ul>
           <div class="card-tags">
             <span class="card-tag">4月20–26日</span>
@@ -708,10 +697,9 @@
         </div>
       </a>
 
-      <!-- Card 2: 戴森 PencilVac -->
       <a href="https://vacuumwars.com/dyson-2026-lineup/" target="_blank" class="card card-dark">
-        <div class="card-image-area" style="background: linear-gradient(135deg, rgba(40,40,40,0.8), rgba(30,30,30,0.9));">
-          <span>🔧</span>
+        <div class="card-image-area" style="background-image: linear-gradient(135deg, rgba(18,18,18,0.2), rgba(18,18,18,0.6)), url('https://vacuumwars.com/wp-content/uploads/2025/12/Dyson-2026-Update.jpg');">
+          <span class="image-label">Dyson 2026</span>
         </div>
         <div class="card-body">
           <div class="card-category">消费电子 · Dyson</div>
@@ -725,12 +713,14 @@
         </div>
       </a>
 
-      <!-- Card 3: 华为Pura 90 -->
       <a href="https://consumer.huawei.com/cn/press/events/2026/huawei-all-scenario-new-product-spring-launch-event/" target="_blank" class="card card-cream">
-        <div class="card-body" style="padding-top:24px;">
+        <div class="card-image-area" style="background-image: linear-gradient(135deg, rgba(80,80,80,0.12), rgba(80,80,80,0.28)), url('https://consumer.huawei.com/content/dam/huawei-cbg-site/cn/mkt/launch/260323/event/mate80-pro-max-fengchiban.png');">
+          <span class="image-label">Huawei Event</span>
+        </div>
+        <div class="card-body">
           <div class="card-category">国内动态 · 华为</div>
           <h3 class="card-title">华为 Pura 90 系列<br/>预计4月发布</h3>
-          <p class="card-text">延续"星环"摄像头 + 龙晶玻璃后盖工艺，影像美学与材质语言持续深化。华为全场景发布会已完成 Mate 80 Pro Max 风驰版等产品铺垫。</p>
+          <p class="card-text">延续“星环”摄像头 + 龙晶玻璃后盖工艺，影像美学与材质语言持续深化。华为全场景发布会已完成 Mate 80 Pro Max 风驰版等产品铺垫。</p>
           <div class="card-divider"></div>
           <p class="card-text" style="font-size:12px;">此前春季发布会：WATCH GT Runner 2 · Mate 80 Pro Max 风驰版 · 畅享90系列 · MateView GT</p>
           <div class="card-tags">
@@ -741,33 +731,25 @@
         </div>
       </a>
 
-      <!-- Card 4: Salone 大咖联动 -->
       <a href="https://www.dezeen.com/2026/04/02/eighteen-unmissable-highlights-milan-design-week-2026/" target="_blank" class="card card-terracotta">
-        <div class="card-image-area short" style="background: linear-gradient(135deg, rgba(196,112,74,0.3), rgba(140,70,40,0.5));">
-          <span>🤝</span>
+        <div class="card-image-area short" style="background-image: linear-gradient(135deg, rgba(93,44,26,0.22), rgba(93,44,26,0.5)), url('https://static.dezeen.com/uploads/2026/04/dsl-studio-romance-of-fragility-hero-2.jpg');">
+          <span class="image-label">Crossovers</span>
         </div>
         <div class="card-body">
           <div class="card-category">米兰设计周 · 联名</div>
           <h3 class="card-title">重磅跨界合作<br/>三组精选</h3>
           <ul class="trend-list">
-            <li>
-              <span class="trend-num" style="color:rgba(255,255,255,0.25);">A</span>
-              <div class="trend-text" style="color:rgba(255,255,255,0.8);"><strong>Zaha Hadid × Audi</strong>"The Origin" 沉浸装置</div>
-            </li>
-            <li>
-              <span class="trend-num" style="color:rgba(255,255,255,0.25);">B</span>
-              <div class="trend-text" style="color:rgba(255,255,255,0.8);"><strong>Kelly Wearstler × H&M</strong>首次合作大型家具系列</div>
-            </li>
-            <li>
-              <span class="trend-num" style="color:rgba(255,255,255,0.25);">C</span>
-              <div class="trend-text" style="color:rgba(255,255,255,0.8);"><strong>Ai Weiwei × Rubelli</strong>丝绸织物装置首展</div>
-            </li>
+            <li><span class="trend-num" style="color:rgba(255,255,255,0.25);">A</span><div class="trend-text" style="color:rgba(255,255,255,0.8);"><strong>Zaha Hadid × Audi</strong>“The Origin” 沉浸装置</div></li>
+            <li><span class="trend-num" style="color:rgba(255,255,255,0.25);">B</span><div class="trend-text" style="color:rgba(255,255,255,0.8);"><strong>Kelly Wearstler × H&M</strong>首次合作大型家具系列</div></li>
+            <li><span class="trend-num" style="color:rgba(255,255,255,0.25);">C</span><div class="trend-text" style="color:rgba(255,255,255,0.8);"><strong>Ai Weiwei × Rubelli</strong>丝绸织物装置首展</div></li>
           </ul>
         </div>
       </a>
 
-      <!-- Card 5: 戴森全产品线 -->
       <div class="brand-card">
+        <div class="brand-cover">
+          <span class="image-label" style="margin: 14px;">Product Lineup</span>
+        </div>
         <div class="card-category" style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--terracotta);font-weight:600;margin-bottom:12px;">消费电子 · Dyson 2026全线</div>
         <h3 style="font-family:'Playfair Display','Noto Serif SC',serif;font-size:17px;font-weight:700;color:var(--charcoal);margin-bottom:16px;">戴森四款新品速览</h3>
         <table class="brand-table">
@@ -778,36 +760,23 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>PencilVac™</td>
-              <td>38mm 超薄，四锥软绒刷</td>
-            </tr>
-            <tr>
-              <td>Spot+Scrub Ai</td>
-              <td>AI识别100种污渍，热水洗刷基站</td>
-            </tr>
-            <tr>
-              <td>V16 Piston</td>
-              <td>900W电机，315 AW，压缩科技</td>
-            </tr>
-            <tr>
-              <td>HushJet Purifier</td>
-              <td>24分贝睡眠模式，静音新专利</td>
-            </tr>
+            <tr><td>PencilVac™</td><td>38mm 超薄，四锥软绒刷</td></tr>
+            <tr><td>Spot+Scrub Ai</td><td>AI识别100种污渍，热水洗刷基站</td></tr>
+            <tr><td>V16 Piston</td><td>900W电机，315 AW，压缩科技</td></tr>
+            <tr><td>HushJet Purifier</td><td>24分贝睡眠模式，静音新专利</td></tr>
           </tbody>
         </table>
       </div>
 
-      <!-- Card 6: LEGO创意 -->
       <a href="https://www.yankodesign.com/2026/04/02/5-best-lego-builds-of-april-2026-we-wish-were-already-official-sets-one-takes-90-trillion-years-to-work/" target="_blank" class="card card-pale">
-        <div class="card-image-area" style="background: linear-gradient(135deg, rgba(196,112,74,0.1), rgba(240,195,165,0.3));">
-          <span>🧱</span>
+        <div class="card-image-area" style="background-image: linear-gradient(135deg, rgba(102,62,38,0.06), rgba(102,62,38,0.2)), url('https://www.yankodesign.com/images/design_news/2026/03/lego-creations-of-april/5_best_lego_designs_april_yanko_design_hero.jpg');">
+          <span class="image-label">Creative Build</span>
         </div>
         <div class="card-body">
           <div class="card-category">设计创意 · Yanko Design</div>
           <h3 class="card-title">LEGO 4月最佳创作<br/>五大惊喜</h3>
           <p class="card-text">90万亿年的齿轮减速机 · 1:1提拉米苏蛋糕 · 乔丹浮雕肖像 · 扫雷实体化 · M4 Mac mini变身2×2砖主机箱</p>
-          <p class="card-text" style="font-size:12px;font-style:italic;">LEGO正成为当代最具包容性的"设计语言媒介"</p>
+          <p class="card-text" style="font-size:12px;font-style:italic;">LEGO正成为当代最具包容性的“设计语言媒介”</p>
           <div class="card-tags">
             <span class="card-tag">Yanko Design</span>
             <span class="card-tag">创意工程</span>
@@ -815,9 +784,11 @@
         </div>
       </a>
 
-      <!-- Card 7: 小米16 -->
       <a href="https://www.sohu.com/a/1000122853_122279996" target="_blank" class="card card-cream">
-        <div class="card-body" style="padding-top:24px;">
+        <div class="card-image-area" style="background-image: linear-gradient(135deg, rgba(70,70,70,0.08), rgba(70,70,70,0.24)), url('https://n.sinaimg.cn/spider20260319/87/w1080h607/20260319/d3f0-d32e959f5cd8df5702b10ddedaef10da.png');">
+          <span class="image-label">Xiaomi Launch</span>
+        </div>
+        <div class="card-body">
           <div class="card-category">国内动态 · 小米</div>
           <h3 class="card-title">小米 16 系列<br/>4月旗舰大战</h3>
           <p class="card-text">继3月新一代SU7发布后，小米16系列预计4月与OPPO Find X9 Ultra同期亮相。SU7汽车设计经验正反哺手机产品线，高端化转型加速。</p>
@@ -829,10 +800,9 @@
         </div>
       </a>
 
-      <!-- Card 8: 全球设计趋势 -->
       <a href="https://rksdesign.com/2026-industrial-design-trends/" target="_blank" class="card card-dark">
-        <div class="card-image-area" style="background: linear-gradient(135deg, rgba(30,30,30,0.9), rgba(20,20,20,1));">
-          <span>🌍</span>
+        <div class="card-image-area" style="background-image: linear-gradient(135deg, rgba(18,18,18,0.18), rgba(18,18,18,0.58)), url('https://rksdesign.com/wp-content/uploads/2026/01/Industrial-Design-Trends-2026-Cover-Image.jpg');">
+          <span class="image-label">2026 Keywords</span>
         </div>
         <div class="card-body">
           <div class="card-category">工业设计 · 全球趋势</div>
@@ -841,18 +811,20 @@
             <li><span class="trend-num">01</span><div class="trend-text" style="color:rgba(255,255,255,0.75);"><strong>AI辅助设计</strong>CMF到人机工学全渗透</div></li>
             <li><span class="trend-num">02</span><div class="trend-text" style="color:rgba(255,255,255,0.75);"><strong>循环设计</strong>模块化·可修复成欧洲标准</div></li>
             <li><span class="trend-num">03</span><div class="trend-text" style="color:rgba(255,255,255,0.75);"><strong>增材制造</strong>复杂几何形体量产化</div></li>
-            <li><span class="trend-num">04</span><div class="trend-text" style="color:rgba(255,255,255,0.75);"><strong>克制与意义感</strong>"无聊但精致"成新高端</div></li>
+            <li><span class="trend-num">04</span><div class="trend-text" style="color:rgba(255,255,255,0.75);"><strong>克制与意义感</strong>“无聊但精致”成新高端</div></li>
             <li><span class="trend-num">05</span><div class="trend-text" style="color:rgba(255,255,255,0.75);"><strong>仿生形态</strong>有机曲线软化科技冷感</div></li>
           </ul>
         </div>
       </a>
 
-      <!-- Card 9: Triennale Milano -->
       <a href="https://www.dezeen.com/2026/04/02/eighteen-unmissable-highlights-milan-design-week-2026/" target="_blank" class="card card-sage">
-        <div class="card-body" style="padding-top:24px;">
+        <div class="card-image-area" style="background-image: linear-gradient(135deg, rgba(38,60,40,0.18), rgba(38,60,40,0.45)), url('https://static.dezeen.com/uploads/2026/04/dsl-studio-romance-of-fragility-hero-2.jpg');">
+          <span class="image-label">Triennale Milano</span>
+        </div>
+        <div class="card-body">
           <div class="card-category">设计展览 · Triennale Milano</div>
           <h3 class="card-title">米兰三年展<br/>四大同期展览</h3>
-          <p class="card-text">《Eames Houses》现代主义住宅经典重现 · 《丹麦百年设计编年史》 · 《Barber & Osgerby 30年回顾展》 · Toyo Ito向Andrea Branzi致敬</p>
+          <p class="card-text">《Eames Houses》现代主义住宅经典重现 · 《丹麦百年设计编年史》 · 《Barber &amp; Osgerby 30年回顾展》 · Toyo Ito向Andrea Branzi致敬</p>
           <div class="card-tags">
             <span class="card-tag">Viale Emilio Alemagna 6</span>
             <span class="card-tag">4月开幕</span>
@@ -860,10 +832,9 @@
         </div>
       </a>
 
-    </div><!-- end masonry-grid -->
+    </div>
   </section>
 
-  <!-- 本周日历 -->
   <section class="calendar-section">
     <div class="section-label">
       <span class="section-label-text">Design Calendar</span>
@@ -880,24 +851,23 @@
         <div class="cal-date">下旬</div>
         <div class="cal-month">April 2026</div>
         <div class="cal-title">📱 华为 Pura 90</div>
-        <div class="cal-desc">华为年度旗舰影像手机预计发布，星环设计+龙晶玻璃</div>
+        <div class="cal-desc">华为年度旗舰影像手机预计发布，星环设计 + 龙晶玻璃</div>
       </div>
       <div class="cal-item">
         <div class="cal-date">下旬</div>
         <div class="cal-month">April 2026</div>
         <div class="cal-title">📲 小米 16 系列</div>
-        <div class="cal-desc">与OPPO Find X9 Ultra同期竞争，旗舰大战开启</div>
+        <div class="cal-desc">与 OPPO Find X9 Ultra 同期竞争，旗舰大战开启</div>
       </div>
       <div class="cal-item">
         <div class="cal-date">19–26</div>
         <div class="cal-month">April 2026</div>
         <div class="cal-title">🏛️ 米兰设计周</div>
-        <div class="cal-desc">全球最顶级设计盛宴，第64届Salone del Mobile正式开幕</div>
+        <div class="cal-desc">全球最顶级设计盛宴，第64届 Salone del Mobile 正式开幕</div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-brand">🌿 设计趋势日报</div>
     <p>由虾虾自动生成 · 2026年4月6日 · 每日更新</p>
