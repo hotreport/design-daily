@@ -1,703 +1,623 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>设计趋势日报 · 2026年4月8日</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --cream: #FAF7F2;
-      --warm-white: #FFFDF9;
-      --sage: #7D9E8A;
-      --sage-light: #A8C5B0;
-      --sage-dark: #5C7A66;
-      --terracotta: #C4785B;
-      --terracotta-light: #D4957A;
-      --terracotta-dark: #A35E42;
-      --text-dark: #2C2C2C;
-      --text-mid: #5A5A5A;
-      --text-light: #8A8A8A;
-      --divider: #E8E0D5;
-      --card-shadow: 0 4px 20px rgba(93, 107, 94, 0.10);
-      --card-hover-shadow: 0 8px 32px rgba(93, 107, 94, 0.18);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设计趋势日报 | 2026年4月8日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream-white: #FAF8F5;
+            --warm-white: #F5F2ED;
+            --sage-green: #87A878;
+            --sage-light: #A8C090;
+            --terracotta: #C67B5C;
+            --terracotta-light: #D99A7E;
+            --charcoal: #2C2C2C;
+            --gray-dark: #4A4A4A;
+            --gray-medium: #7A7A7A;
+            --gray-light: #B5B5B5;
+            --shadow-soft: 0 4px 20px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+        }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Noto Sans SC', -apple-system, sans-serif;
-      background: var(--cream);
-      color: var(--text-dark);
-      line-height: 1.75;
-      font-size: 15px;
-    }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--cream-white);
+            color: var(--charcoal);
+            line-height: 1.7;
+        }
 
-    /* ── Header ── */
-    .site-header {
-      background: var(--warm-white);
-      border-bottom: 1px solid var(--divider);
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .header-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--sage-dark);
-      letter-spacing: 0.5px;
-      padding: 18px 0;
-    }
-    .header-logo span { color: var(--terracotta); }
-    .header-date {
-      font-size: 0.82rem;
-      color: var(--text-light);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            min-height: 500px;
+            background: linear-gradient(135deg, var(--sage-green) 0%, var(--sage-light) 50%, var(--terracotta-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
 
-    /* ── Hero ── */
-    .hero {
-      background: linear-gradient(135deg, var(--sage) 0%, var(--sage-dark) 60%, #4A6355 100%);
-      padding: 72px 40px 80px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -10%;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.04);
-    }
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.65);
-      margin-bottom: 18px;
-    }
-    .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 5vw, 3.8rem);
-      font-weight: 700;
-      color: white;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-    .hero-subtitle {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.80);
-      max-width: 520px;
-      margin: 0 auto 32px;
-      font-weight: 300;
-    }
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-    .tag {
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.25);
-      color: white;
-      padding: 5px 16px;
-      border-radius: 20px;
-      font-size: 0.78rem;
-      letter-spacing: 0.5px;
-      backdrop-filter: blur(4px);
-      transition: background 0.3s;
-    }
-    .tag:hover { background: rgba(255,255,255,0.25); }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="3" fill="rgba(255,255,255,0.08)"/><circle cx="40" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="70" r="1.5" fill="rgba(255,255,255,0.06)"/></svg>');
+            background-size: 200px 200px;
+        }
 
-    /* ── Layout helpers ── */
-    .section-wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 60px 24px;
-    }
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 32px;
-    }
-    .section-icon {
-      width: 40px;
-      height: 40px;
-      background: var(--sage);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text-dark);
-    }
-    .section-line {
-      flex: 1;
-      height: 1px;
-      background: var(--divider);
-    }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+        }
 
-    /* ── Headline ── */
-    .headline-section {
-      max-width: 1100px;
-      margin: -40px auto 0;
-      padding: 0 24px;
-      position: relative;
-      z-index: 2;
-    }
-    .headline-card {
-      background: white;
-      border-radius: 20px;
-      padding: 40px 44px;
-      box-shadow: var(--card-shadow);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: start;
-    }
-    .headline-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--terracotta);
-      color: white;
-      font-size: 0.7rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 4px;
-      margin-bottom: 18px;
-    }
-    .headline-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.65rem;
-      font-weight: 700;
-      color: var(--text-dark);
-      line-height: 1.35;
-      margin-bottom: 14px;
-    }
-    .headline-desc {
-      color: var(--text-mid);
-      font-size: 0.93rem;
-      line-height: 1.8;
-      margin-bottom: 18px;
-    }
-    .headline-source {
-      font-size: 0.78rem;
-      color: var(--text-light);
-    }
-    .headline-source a {
-      color: var(--sage-dark);
-      text-decoration: none;
-      border-bottom: 1px solid var(--sage-light);
-    }
-    .headline-awards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .award-card {
-      background: var(--cream);
-      border-radius: 14px;
-      padding: 22px 20px;
-      border: 1px solid var(--divider);
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-    .award-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--card-hover-shadow);
-    }
-    .award-tag {
-      display: inline-block;
-      background: var(--terracotta);
-      color: white;
-      font-size: 0.65rem;
-      padding: 2px 8px;
-      border-radius: 3px;
-      margin-bottom: 8px;
-      letter-spacing: 1px;
-    }
-    .award-name {
-      font-weight: 600;
-      font-size: 0.88rem;
-      color: var(--text-dark);
-      margin-bottom: 6px;
-      line-height: 1.4;
-    }
-    .award-desc {
-      font-size: 0.78rem;
-      color: var(--text-light);
-      line-height: 1.6;
-    }
+        .hero-date {
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 1rem;
+        }
 
-    /* ── Product grid ── */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .product-card {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--card-shadow);
-      transition: transform 0.25s, box-shadow 0.25s;
-      border: 1px solid transparent;
-    }
-    .product-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--card-hover-shadow);
-      border-color: var(--sage-light);
-    }
-    .product-img {
-      width: 100%;
-      height: 155px;
-      overflow: hidden;
-      background: var(--cream);
-      position: relative;
-    }
-    .product-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .product-body {
-      padding: 20px 18px;
-    }
-    .product-brand {
-      font-size: 0.7rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--sage-dark);
-      margin-bottom: 6px;
-      font-weight: 600;
-    }
-    .product-name {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--text-dark);
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-    .product-feature {
-      font-size: 0.8rem;
-      color: var(--text-mid);
-      line-height: 1.65;
-    }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 700;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.15);
+        }
 
-    /* ── Article list ── */
-    .article-list { display: flex; flex-direction: column; gap: 18px; }
-    .article-card {
-      background: white;
-      border-radius: 16px;
-      padding: 28px 30px;
-      box-shadow: var(--card-shadow);
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 20px;
-      align-items: start;
-      transition: transform 0.25s;
-      border: 1px solid transparent;
-    }
-    .article-card:hover {
-      transform: translateX(4px);
-      border-color: var(--sage-light);
-    }
-    .article-number {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--sage-light);
-      line-height: 1;
-      padding-top: 2px;
-    }
-    .article-title {
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--text-dark);
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
-    .article-desc {
-      font-size: 0.85rem;
-      color: var(--text-mid);
-      line-height: 1.7;
-      margin-bottom: 10px;
-    }
-    .article-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-    .mini-tag {
-      background: var(--cream);
-      border: 1px solid var(--divider);
-      color: var(--text-mid);
-      padding: 2px 10px;
-      border-radius: 12px;
-      font-size: 0.72rem;
-    }
-    .article-source {
-      font-size: 0.78rem;
-      color: var(--text-light);
-      white-space: nowrap;
-    }
-    .article-source a {
-      color: var(--sage-dark);
-      text-decoration: none;
-    }
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.95);
+            font-weight: 300;
+            max-width: 500px;
+            margin: 0 auto;
+        }
 
-    /* ── Trend table ── */
-    .trend-table {
-      background: white;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--card-shadow);
-    }
-    .trend-table table { width: 100%; border-collapse: collapse; }
-    .trend-table th {
-      background: var(--sage);
-      color: white;
-      padding: 14px 24px;
-      text-align: left;
-      font-weight: 500;
-      font-size: 0.85rem;
-    }
-    .trend-table td {
-      padding: 14px 24px;
-      border-bottom: 1px solid var(--divider);
-      font-size: 0.88rem;
-      vertical-align: top;
-    }
-    .trend-table tr:last-child td { border-bottom: none; }
-    .trend-table tr:nth-child(even) td { background: var(--cream); }
-    .trend-keyword { font-weight: 600; color: var(--terracotta-dark); }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            animation: bounce 2s infinite;
+        }
 
-    /* ── Footer ── */
-    .site-footer {
-      background: var(--warm-white);
-      border-top: 1px solid var(--divider);
-      padding: 36px 40px;
-      text-align: center;
-    }
-    .footer-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--sage-dark);
-      margin-bottom: 8px;
-    }
-    .footer-meta { font-size: 0.78rem; color: var(--text-light); margin-bottom: 14px; }
-    .footer-divider {
-      width: 40px;
-      height: 3px;
-      background: var(--terracotta);
-      margin: 0 auto 14px;
-      border-radius: 2px;
-    }
-    .footer-copy { font-size: 0.72rem; color: var(--text-light); }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
 
-    /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .site-header { padding: 0 20px; }
-      .hero { padding: 50px 20px 60px; }
-      .headline-card { grid-template-columns: 1fr; padding: 28px 24px; gap: 28px; }
-      .headline-awards { grid-template-columns: 1fr; }
-      .section-wrap { padding: 40px 20px; }
-      .article-card { grid-template-columns: auto 1fr; }
-      .article-source { display: none; }
-      .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
-    }
-  </style>
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Featured Section */
+        .featured-section {
+            padding: 4rem 0;
+            background: var(--warm-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            background: var(--terracotta);
+            color: white;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--charcoal);
+        }
+
+        .featured-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .featured-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            background: linear-gradient(45deg, var(--sage-light), var(--terracotta-light));
+        }
+
+        .featured-content {
+            padding: 2.5rem;
+        }
+
+        .featured-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-tag {
+            font-size: 0.75rem;
+            color: var(--sage-green);
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .featured-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .featured-desc {
+            color: var(--gray-dark);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .highlight-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--gray-dark);
+        }
+
+        .highlight-list li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--terracotta);
+        }
+
+        /* Masonry Grid */
+        .masonry-section {
+            padding: 4rem 0;
+        }
+
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            break-inside: avoid;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--sage-light) 0%, var(--terracotta-light) 100%);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-category {
+            font-size: 0.7rem;
+            color: var(--sage-green);
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--charcoal);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--terracotta);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: gap 0.3s ease;
+        }
+
+        .card-link:hover {
+            gap: 0.8rem;
+        }
+
+        /* Trends Section */
+        .trends-section {
+            padding: 4rem 0;
+            background: var(--warm-white);
+        }
+
+        .trends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .trend-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+            border-left: 4px solid var(--sage-green);
+        }
+
+        .trend-item:nth-child(2) { border-left-color: var(--terracotta); }
+        .trend-item:nth-child(3) { border-left-color: var(--sage-light); }
+        .trend-item:nth-child(4) { border-left-color: var(--terracotta-light); }
+        .trend-item:nth-child(5) { border-left-color: var(--sage-green); }
+
+        .trend-name {
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .trend-example {
+            font-size: 0.85rem;
+            color: var(--gray-medium);
+        }
+
+        .trend-keywords {
+            font-size: 0.8rem;
+            color: var(--sage-green);
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 0;
+            text-align: center;
+            background: var(--charcoal);
+            color: white;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--sage-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--terracotta-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                height: 60vh;
+                min-height: 400px;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .masonry-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .featured-content {
+                padding: 1.5rem;
+            }
+
+            .featured-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-date">2026年4月8日</div>
+            <h1 class="hero-title">设计趋势日报</h1>
+            <p class="hero-subtitle">每日精选全球工业设计、家居设计与消费电子领域的前沿资讯</p>
+        </div>
+        <div class="scroll-indicator">向下滚动 ↓</div>
+    </section>
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="header-logo">虾虾<span>·</span>设计趋势</div>
-    <div class="header-date">2026年4月8日 · 星期三</div>
-  </header>
+    <!-- Featured Section -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">今日头条</span>
+                <h2 class="section-title">2026米兰设计周前瞻</h2>
+            </div>
+            <div class="featured-card">
+                <div class="featured-image" style="background: linear-gradient(135deg, #87A878 0%, #C67B5C 100%);"></div>
+                <div class="featured-content">
+                    <div class="featured-meta">
+                        <span class="meta-tag">设计盛会</span>
+                        <span class="meta-tag">2026.4.20-26</span>
+                        <span class="meta-tag">意大利·米兰</span>
+                    </div>
+                    <h3 class="featured-title">设计界的年度盛事即将开幕</h3>
+                    <p class="featured-desc">
+                        2026年米兰设计周即将拉开帷幕，作为全球最具影响力的设计盛会，今年的主题是 <strong>"Be the Project"</strong>（成为项目），强调设计是动态的、参与式的过程，每个人都是变革的推动者。
+                    </p>
+                    <ul class="highlight-list">
+                        <li><strong>Salone Raritas 新展区</strong>：首次聚焦收藏级设计品</li>
+                        <li><strong>Aurea, an Architectural Fiction</strong>：由Maison Numéro 20打造的沉浸式虚构建筑空间</li>
+                        <li><strong>Alcova 双场地</strong>：Baggio军事医院与Villa Pestarini首次同时开放</li>
+                        <li><strong>设计趋势</strong>：可持续再生、手工艺复兴、AI协作设计、多感官沉浸式体验</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-eyebrow">Design Trends Daily</div>
-    <h1 class="hero-title">设计趋势日报</h1>
-    <p class="hero-subtitle">AWE2026展会亮点 · 苹果折叠屏新进展 · 小米Miloco发布 · 2026工业设计趋势</p>
-    <div class="hero-tags">
-      <span class="tag"># AWE2026</span>
-      <span class="tag"># AI智能家居</span>
-      <span class="tag"># 苹果折叠屏</span>
-      <span class="tag"># 小米Miloco</span>
-      <span class="tag"># 华为鸿蒙智家</span>
-      <span class="tag"># 工业设计趋势</span>
-    </div>
-  </section>
+    <!-- Masonry Grid Section -->
+    <section class="masonry-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" style="background: var(--sage-green);">精选资讯</span>
+                <h2 class="section-title">今日设计亮点</h2>
+            </div>
+            <div class="masonry-grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-category">家居设计</div>
+                        <h3 class="card-title">TRETTITRE 赛博朋克唱片机</h3>
+                        <p class="card-desc">融合无印良品极简主义与赛博朋克美学，可作为环境光发光，支持无线充电，挑战当前单调的极简设计。</p>
+                        <a href="https://www.yankodesign.com/2026/04/07/muji-meets-cyberpunk-vinyl-record-player-glows-like-an-ambient-light-and-charges-wirelessly/" class="card-link" target="_blank">查看详情 →</a>
+                    </div>
+                </div>
 
-  <!-- Headline -->
-  <div class="headline-section">
-    <div class="headline-card">
-      <div class="headline-left">
-        <div class="headline-badge">🏆 今日头条</div>
-        <h2 class="headline-title">AWE2026圆满落幕<br>AI科技引领家电产业升级</h2>
-        <p class="headline-desc">
-          2026中国家电及消费电子博览会（AWE2026）于3月12日-15日在上海举办，主题"AI科技、慧享未来"。展会面积达17万平方米，1200+企业参展，全球首发重磅新品超100款。本届展会最大亮点：智能家居从"技术炫技"转向"需求为王"，AI智能体成为全场标配，机器人技术广泛渗透。
-        </p>
-        <p class="headline-source">来源：<a href="https://www.ithome.com/zt/awe2026/" target="_blank">IT之家 AWE2026专题</a></p>
-      </div>
-      <div class="headline-awards">
-        <div class="award-card">
-          <div class="award-tag">🏠 全屋智能</div>
-          <div class="award-name">小米Miloco全屋智能</div>
-          <div class="award-desc">大模型驱动 · 场景化智能 · 高智感的家</div>
-        </div>
-        <div class="award-card">
-          <div class="award-tag">🏠 鸿蒙生态</div>
-          <div class="award-name">华为鸿蒙智家</div>
-          <div class="award-desc">1+2+N解决方案 · 全场景联动</div>
-        </div>
-        <div class="award-card">
-          <div class="award-tag">📱 折叠屏</div>
-          <div class="award-name">苹果折叠屏iPhone</div>
-          <div class="award-desc">富士康试产中 · 预计2026下半年发布</div>
-        </div>
-        <div class="award-card">
-          <div class="award-tag">🤖 机器人</div>
-          <div class="award-name">具身智能崛起</div>
-          <div class="award-desc">AI机器人 · 智慧出行 · 全产业链</div>
-        </div>
-      </div>
-    </div>
-  </div>
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-category">家居设计</div>
+                        <h3 class="card-title">Perch 双面挂钟</h3>
+                        <p class="card-desc">双面设计让墙壁成为时间的动态展示，将传统公共空间的双面钟概念引入家居环境，创造独特的空间感。</p>
+                        <a href="https://www.yankodesign.com/2026/04/07/a-double-sided-clock-that-turns-walls-into-living-moments-of-time/" class="card-link" target="_blank">查看详情 →</a>
+                    </div>
+                </div>
 
-  <!-- Product Grid -->
-  <div class="section-wrap">
-    <div class="section-header">
-      <div class="section-icon">🏭</div>
-      <h2 class="section-title">AWE2026 · 小米重磅发布</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="product-grid">
-      <div class="product-card">
-        <div class="product-img">
-          <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=80" alt="小米Miloco智能方案">
-        </div>
-        <div class="product-body">
-          <div class="product-brand">Xiaomi 小米</div>
-          <div class="product-name">Xiaomi Miloco全屋智能方案</div>
-          <div class="product-feature">大模型驱动的智能家居平台，"高智感的家"主题展，聚焦人车家全生态战略</div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="米家智能净烟机">
-        </div>
-        <div class="product-body">
-          <div class="product-brand">Xiaomi 小米</div>
-          <div class="product-name">米家智能净烟机P2</div>
-          <div class="product-feature">厨房智能新品 · 智能感应 · 油烟净化一体化设计</div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="扫拖机器人">
-        </div>
-        <div class="product-body">
-          <div class="product-brand">Xiaomi 小米</div>
-          <div class="product-name">扫拖机器人6 Max</div>
-          <div class="product-feature">清洁场景新品 · AI路径规划 · 全屋智能协同</div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img">
-          <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600&q=80" alt="小米电视">
-        </div>
-        <div class="product-body">
-          <div class="product-brand">Xiaomi 小米</div>
-          <div class="product-name">小米电视S Pro Mini LED 2026</div>
-          <div class="product-feature">客厅影音新品 · Mini LED技术 · 客厅场景化智能</div>
-        </div>
-      </div>
-      <div class="product-card">
-        <div class="product-img">
-          <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" alt="Xiaomi Sound">
-        </div>
-        <div class="product-body">
-          <div class="product-brand">Xiaomi 小米</div>
-          <div class="product-name">Xiaomi Sound 2 Max</div>
-          <div class="product-feature">智能音响新品 · 全屋音频覆盖 · 家庭娱乐生态</div>
-        </div>
-      </div>
-    </div>
-  </div>
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-category">可持续设计</div>
+                        <h3 class="card-title">自行车架升级改造扶手椅</h3>
+                        <p class="card-desc">由Omri Piko Kahan设计的升级改造项目，将废旧自行车车架直接转化为扶手椅，保留原有几何结构，体现可持续设计理念。</p>
+                        <a href="https://www.yankodesign.com/2026/04/07/these-old-bike-frames-upcycled-into-armchairs-are-the-coolest-thing-youll-see-today/" class="card-link" target="_blank">查看详情 →</a>
+                    </div>
+                </div>
 
-  <!-- Apple Fold -->
-  <div class="section-wrap" style="background: var(--warm-white); border-radius: 24px; max-width: 1100px; margin: 0 auto; padding: 60px 24px;">
-    <div class="section-header">
-      <div class="section-icon">📱</div>
-      <h2 class="section-title">苹果折叠屏iPhone · 新进展</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="article-list">
-      <div class="article-card">
-        <div class="article-number">01</div>
-        <div>
-          <div class="article-title">富士康已开始试产苹果折叠屏iPhone</div>
-          <div class="article-desc">据供应链消息，富士康已启动苹果折叠屏iPhone的试产工作，这标志着苹果折叠屏手机已进入量产前的最后阶段。预计最快2026年第四季度发布，将与三星Galaxy Z系列展开正面竞争。</div>
-          <div class="article-tags">
-            <span class="mini-tag">折叠屏</span>
-            <span class="mini-tag">富士康</span>
-            <span class="mini-tag">供应链</span>
-          </div>
-        </div>
-        <div class="article-source"><a href="https://news.qq.com/rain/a/20260407A0282L00" target="_blank">腾讯新闻</a></div>
-      </div>
-    </div>
-  </div>
+                <!-- Card 4 -->
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-category">灯具设计</div>
+                        <h3 class="card-title">TL-1 空灵台灯</h3>
+                        <p class="card-desc">由蒙特利尔Juba设计，采用纤维素醋酸酯制成，具有宇宙般的色彩，为室内空间带来超凡脱俗的光影体验。</p>
+                        <a href="https://design-milk.com/" class="card-link" target="_blank">查看详情 →</a>
+                    </div>
+                </div>
 
-  <!-- Industry Trends -->
-  <div class="section-wrap">
-    <div class="section-header">
-      <div class="section-icon">🔭</div>
-      <h2 class="section-title">2026工业设计六大趋势</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="article-list">
-      <div class="article-card">
-        <div class="article-number">01</div>
-        <div>
-          <div class="article-title">AI + 以人为本的真实性</div>
-          <div class="article-desc">AI辅助设计与人类创造力的深度融合，真实性美学成为产品差异化的核心，而非单纯的技术堆砌。</div>
-          <div class="article-tags">
-            <span class="mini-tag">AI辅助设计</span>
-            <span class="mini-tag">人性化</span>
-            <span class="mini-tag">真实性</span>
-          </div>
-        </div>
-        <div class="article-source"><a href="https://www.accio.com/business/industrial-design-trends-2026" target="_blank">accio.com</a></div>
-      </div>
-      <div class="article-card">
-        <div class="article-number">02</div>
-        <div>
-          <div class="article-title">循环设计与再生材料</div>
-          <div class="article-desc">从摇篮到摇篮的循环经济理念，再生陶瓷、竹纤维、海洋塑料等可持续材料成为产品设计的核心要素。</div>
-          <div class="article-tags">
-            <span class="mini-tag">可持续设计</span>
-            <span class="mini-tag">循环经济</span>
-            <span class="mini-tag">再生材料</span>
-          </div>
-        </div>
-        <div class="article-source"><a href="https://www.eckstein-design.com/en/news-en/top-6-industrial-design-trends-for-2026/" target="_blank">Eckstein Design</a></div>
-      </div>
-      <div class="article-card">
-        <div class="article-number">03</div>
-        <div>
-          <div class="article-title">模块化与增材制造</div>
-          <div class="article-desc">3D打印、模块化系统设计让定制化产品更加普及，用户可以根据需求灵活组合产品模块。</div>
-          <div class="article-tags">
-            <span class="mini-tag">3D打印</span>
-            <span class="mini-tag">模块化</span>
-            <span class="mini-tag">增材制造</span>
-          </div>
-        </div>
-        <div class="article-source">Eckstein Design</div>
-      </div>
-      <div class="article-card">
-        <div class="article-number">04</div>
-        <div>
-          <div class="article-title">多感官体验设计</div>
-          <div class="article-desc">产品设计不仅关注视觉和触觉，还融入嗅觉、听觉、味觉的多感官体验，创造更沉浸式的使用场景。</div>
-          <div class="article-tags">
-            <span class="mini-tag">多感官</span>
-            <span class="mini-tag">体验设计</span>
-            <span class="mini-tag">沉浸式</span>
-          </div>
-        </div>
-        <div class="article-source">accio.com</div>
-      </div>
-      <div class="article-card">
-        <div class="article-number">05</div>
-        <div>
-          <div class="article-title">透明供应链与道德设计</div>
-          <div class="article-desc">消费者越来越关注产品的来源和制作过程，透明供应链、道德制造成为品牌信任的新基石。</div>
-          <div class="article-tags">
-            <span class="mini-tag">供应链透明</span>
-            <span class="mini-tag">道德制造</span>
-            <span class="mini-tag">品牌信任</span>
-          </div>
-        </div>
-        <div class="article-source">RKS Design</div>
-      </div>
-    </div>
-  </div>
+                <!-- Card 5 -->
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-category">消费电子</div>
+                        <h3 class="card-title">realme C100 5G 超长续航手机</h3>
+                        <p class="card-desc">$215亲民价格，7000mAh超大电池，视频播放续航长达20小时，支持5G网络，在预算手机中实现长续航与5G的平衡。</p>
+                        <a href="https://www.yankodesign.com/2026/04/08/this-215-phone-has-a-7000mah-battery-and-lasts-20-hours-on-video/" class="card-link" target="_blank">查看详情 →</a>
+                    </div>
+                </div>
 
-  <!-- Trend Insights -->
-  <div class="section-wrap">
-    <div class="section-header">
-      <div class="section-icon">💡</div>
-      <h2 class="section-title">核心洞察</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="trend-table">
-      <table>
-        <thead>
-          <tr>
-            <th style="width:30%">趋势方向</th>
-            <th>核心解读</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><span class="trend-keyword">智能家居从"炫技"到"务实"</span></td>
-            <td>AWE2026最大转变：技术不再是主角，用户真实需求成为产品定义的核心出发点</td>
-          </tr>
-          <tr>
-            <td><span class="trend-keyword">AI成为家电"标配前缀"</span></td>
-            <td>几乎所有新品命名都带有"AI"前缀，但真正落地的感知自适应功能开始分化</td>
-          </tr>
-          <tr>
-            <td><span class="trend-keyword">大模型驱动场景智能</span></td>
-            <td>小米Miloco、华为鸿蒙智家均以大模型为底层，实现场景化、个性化的智能体验</td>
-          </tr>
-          <tr>
-            <td><span class="trend-keyword">苹果入局折叠屏改变格局</span></td>
-            <td>苹果折叠屏iPhone若2026年发布，将重新定义折叠屏设计标准</td>
-          </tr>
-          <tr>
-            <td><span class="trend-keyword">具身智能加速渗透</span></td>
-            <td>机器人技术从工业场景进入消费电子，AI与物理世界的交互成为新赛道</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
+                <!-- Card 6 -->
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-category">消费电子</div>
+                        <h3 class="card-title">Modos Flow 60Hz彩色电子墨水显示器</h3>
+                        <p class="card-desc">刷新率达到60Hz的彩色电子墨水显示器，旨在提供适合长时间工作的视觉舒适体验，缓解屏幕眼疲劳。</p>
+                        <a href="https://www.yankodesign.com/2026/04/07/this-color-e-ink-monitor-runs-at-60hz-real-work-no-eye-strain/" class="card-link" target="_blank">查看详情 →</a>
+                    </div>
+                </div>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-brand">虾虾 · 设计趋势日报</div>
-    <div class="footer-divider"></div>
-    <p class="footer-meta">2026年4月8日 · 每日更新 · 工业设计 · 家居设计 · 消费电子</p>
-    <p class="footer-copy">© 2026 设计趋势日报 · 内容整理自公开资讯</p>
-  </footer>
+                <!-- Card 7 -->
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-category">消费电子</div>
+                        <h3 class="card-title">Supertiny 100W 充电器</h3>
+                        <p class="card-desc">号称全球最小的100W充电器，尺寸小巧可握于掌心，能为MacBook等设备提供全速充电。</p>
+                        <a href="https://www.yankodesign.com/2026/04/06/the-worlds-smallest-100w-charger-fits-in-your-palm-and-charges-macbooks-at-full-speed/" class="card-link" target="_blank">查看详情 →</a>
+                    </div>
+                </div>
 
+                <!-- Card 8 -->
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-category">交通工具</div>
+                        <h3 class="card-title">AOTOS Flux X26 电动摩托车</h3>
+                        <p class="card-desc">续航约70英里（113公里），扭矩达110牛·米，配备"一键抬头"功能，结合理性与感性推动电动化。</p>
+                        <a href="https://www.yankodesign.com/2026/03/26/70-mile-range-110-nm-of-torque-and-a-one-click-wheelie-meet-the-aotos-flux-x26/" class="card-link" target="_blank">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-category">交通工具</div>
+                        <h3 class="card-title">HopFlyt 混合动力eVTOL飞行器</h3>
+                        <p class="card-desc">采用半圆形机翼设计（基于1928年Custer专利），声称可实现800英里航程，功耗降低30%。</p>
+                        <a href="https://www.yankodesign.com/2026/04/07/semicircular-wings-give-this-hybrid-evtol-an-800-mile-range-with-30-less-power-consumption/" class="card-link" target="_blank">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- Card 10 -->
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #fc5c7d 0%, #6a82fb 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-category">精品配饰</div>
+                        <h3 class="card-title">Desder D001 三轴陀飞轮手表</h3>
+                        <p class="card-desc">意大利奢华手表，配备三轴陀飞轮，设计灵感来源于法拉利等老式跑车的仪表盘，采用圆形仪表和刷金属外壳。</p>
+                        <a href="https://www.yankodesign.com/2026/04/07/this-luxury-italian-watch-has-a-triple-axis-tourbillon-and-looks-like-a-ferrari-dashboard/" class="card-link" target="_blank">查看详情 →</a>
+                    </div>
+                </div>
+
+                <!-- Card 11 -->
+                <div class="card">
+                    <div class="card-image" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);"></div>
+                    <div class="card-content">
+                        <div class="card-category">建筑设计</div>
+                        <h3 class="card-title">Light House 垂直住宅</h3>
+                        <p class="card-desc">由Studioninedots设计的阿姆斯特丹住宅，由一系列错落堆叠的方盒子构成，抛弃传统平面图，创造充满趣味的垂直生活空间。</p>
+                        <a href="https://www.yankodesign.com/2026/04/07/studioninedots-light-house-is-a-vertical-amsterdam-home-built-from-playfully-stacked-boxes/" class="card-link" target="_blank">查看详情 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trends Section -->
+    <section class="trends-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" style="background: var(--terracotta);">趋势洞察</span>
+                <h2 class="section-title">今日设计趋势总结</h2>
+            </div>
+            <div class="trends-grid">
+                <div class="trend-item">
+                    <div class="trend-name">可持续设计</div>
+                    <div class="trend-example">自行车架扶手椅、IKEA Food for Thought</div>
+                    <div class="trend-keywords">#升级改造 #循环经济</div>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-name">科技融合</div>
+                    <div class="trend-example">Modos Flow显示器、Konel Pulse Bag</div>
+                    <div class="trend-keywords">#健康科技 #AI协作</div>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-name">手工艺复兴</div>
+                    <div class="trend-example">Mutina陶瓷系列、Homo Faber Fellowship</div>
+                    <div class="trend-keywords">#传统工艺 #材料创新</div>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-name">沉浸式体验</div>
+                    <div class="trend-example">ROOM FOR DREAMS、Aurea空间</div>
+                    <div class="trend-keywords">#多感官 #空间叙事</div>
+                </div>
+                <div class="trend-item">
+                    <div class="trend-name">极简未来感</div>
+                    <div class="trend-example">TRETTITRE唱片机、Supertiny充电器</div>
+                    <div class="trend-keywords">#赛博朋克 #极致小巧</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">本日报由虾虾整理生成 | 2026年4月8日</p>
+            <div class="footer-links">
+                <a href="https://www.yankodesign.com/" class="footer-link" target="_blank">Yanko Design</a>
+                <a href="https://design-milk.com/" class="footer-link" target="_blank">Design Milk</a>
+                <a href="https://www.core77.com/" class="footer-link" target="_blank">Core77</a>
+                <a href="https://www.designboom.com/" class="footer-link" target="_blank">Designboom</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
