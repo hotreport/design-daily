@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设计趋势日报 · 2026年4月25日</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FDF8F3;
+            --sage: #8FA882;
+            --sage-light: #B8C9A8;
+            --terracotta: #C77B58;
+            --terracotta-light: #E8A882;
+            --charcoal: #2C2C2C;
+            --warm-gray: #6B6560;
+            --card-bg: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.7;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-light) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--terracotta);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero p {
+            font-size: 16px;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* 今日头条 */
+        .headline {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .headline:hover {
+            transform: translateY(-4px);
+        }
+
+        .headline-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .headline-content {
+            padding: 32px;
+        }
+
+        .headline-tag {
+            display: inline-block;
+            background: var(--terracotta);
+            color: white;
+            padding: 4px 14px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .headline h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .headline p {
+            color: var(--warm-gray);
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .headline-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--sage);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .headline-link:hover {
+            color: var(--terracotta);
+        }
+
+        /* 分类标题 */
+        .section-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            padding-left: 16px;
+            border-left: 4px solid var(--terracotta);
+        }
+
+        /* Pinterest 瀑布流 */
+        .masonry {
+            columns: 3;
+            column-gap: 24px;
+            margin-bottom: 48px;
+        }
+
+        .card {
+            break-inside: avoid;
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            display: block;
+        }
+
+        .card-img-placeholder {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background: var(--sage);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .card-tag.hot {
+            background: var(--terracotta);
+        }
+
+        .card h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .card p {
+            color: var(--warm-gray);
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--sage);
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 12px;
+            margin-top: 10px;
+            transition: color 0.3s;
+        }
+
+        .card-link:hover {
+            color: var(--terracotta);
+        }
+
+        /* 趋势总结卡片 */
+        .trend-summary {
+            background: linear-gradient(135deg, #f5f0eb 0%, #ede5dc 100%);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
+        .trend-summary h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--terracotta);
+        }
+
+        .trend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .trend-item {
+            background: rgba(255,255,255,0.7);
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 14px;
+        }
+
+        .trend-item strong {
+            display: block;
+            color: var(--sage);
+            margin-bottom: 4px;
+            font-size: 15px;
+        }
+
+        /* 底部 */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--warm-gray);
+            font-size: 13px;
+        }
+
+        .footer a {
+            color: var(--sage);
+            text-decoration: none;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 28px; }
+            .headline-img { height: 240px; }
+            .headline h2 { font-size: 22px; }
+            .masonry { columns: 1; }
+            .trend-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .masonry { columns: 2; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">📅 2026年4月25日 · 星期六</span>
+            <h1>设计趋势日报</h1>
+            <p>工业设计 · 家居设计 · 消费电子 — 每日精选灵感</p>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- 今日头条 -->
+        <a class="headline" href="https://finance.sina.com.cn/stock/t/2026-04-25/doc-inhvtmtf0834472.shtml" target="_blank" style="text-decoration:none;color:inherit;">
+            <div style="width:100%;height:360px;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                <div style="position:absolute;top:20px;right:30px;font-size:120px;opacity:0.1;">📱</div>
+                <div style="position:absolute;bottom:30px;left:40px;font-size:80px;opacity:0.08;">⚡</div>
+                <div style="text-align:center;color:white;position:relative;z-index:1;">
+                    <div style="font-size:72px;margin-bottom:16px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));">📲</div>
+                    <div style="font-family:'Noto Serif SC',serif;font-size:24px;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,0.4);">iPhone Fold · 苹果首款折叠屏</div>
+                    <div style="font-size:14px;opacity:0.8;margin-top:8px;">4.5mm 超薄机身 · 液态金属铰链 · 2026秋季发布</div>
+                </div>
+            </div>
+            <div class="headline-content">
+                <span class="headline-tag">🔥 今日头条</span>
+                <h2>苹果 iPhone Fold 机模全面曝光：史上最贵iPhone，起售价近1.5万元</h2>
+                <p>苹果首款折叠屏手机 iPhone Fold 详细规格与机模全面曝光，目标直指2026年秋季发布。为追求极致轻薄（单边仅4.5mm），苹果做出五大妥协：取消自定义操作按钮、舍弃MagSafe磁吸、放弃Face ID改用侧边指纹、影像仅双摄（4800万主摄+超广角，无长焦）、取消实体SIM卡槽全面转向eSIM。核心卖点聚焦 UFG不等厚玻璃"视觉无折痕"技术和液态金属铰链。起售价预计突破2000美元，首年销量预估600-700万台，占全球折叠屏市场约22%份额。</p>
+                <span class="headline-link">阅读详情 →</span>
+            </div>
+        </a>
+
+        <!-- 消费电子 -->
+        <h2 class="section-title">📱 消费电子</h2>
+        <div class="masonry">
+
+            <!-- 卡片1: 华为Pura X Max -->
+            <div class="card">
+                <img class="card-img" src="Huawei_Pura_X_Max_foldable_sma_2026-04-25T13-04-12.png" alt="华为 Pura X Max" onerror="this.outerHTML='<div class=\'card-img-placeholder\' style=\'background:linear-gradient(135deg,#1a1a2e,#e94560);color:white;font-size:36px;\'>📱</div>'">
+                <div class="card-body">
+                    <span class="card-tag hot">华为</span>
+                    <h3>华为 Pura X Max 阔折叠旗舰今日开售，起售10999元</h3>
+                    <p>华为首款双面阔型屏手机今日正式开售。内外双大屏设计，展开后提供沉浸式体验。全系搭载麒麟9030 Pro旗舰芯片，首发AI灵感妙创、XMAGE智拍等多项技术，五款时尚配色，支持防尘抗水。</p>
+                    <a class="card-link" href="https://finance.sina.com.cn/stock/t/2026-04-21/doc-inhvfqcn6988714.shtml" target="_blank">阅读详情 →</a>
+                </div>
+            </div>
+
+            <!-- 卡片2: Redmi K90 Max -->
+            <div class="card">
+                <div class="card-img-placeholder" style="background:linear-gradient(135deg,#ff6b35,#f7c948);color:white;">🎮</div>
+                <div class="card-body">
+                    <span class="card-tag">小米</span>
+                    <h3>Redmi K90 Max 首发主动风冷散热，首销刷新3K-4K价位纪录</h3>
+                    <p>搭载天玑9500双芯，内置直径18.1mm超大风扇，单体最大风量0.42CFM，搭配直立式进风结构和仿真涡流风道，风量利用率达78.6%。首销4小时刷新近一年全渠道3K-4K新机首销纪录。</p>
+                    <a class="card-link" href="https://finance.sina.com.cn/tech/roll/2026-04-21/doc-inhvhrqu6100232.shtml" target="_blank">阅读详情 →</a>
+                </div>
+            </div>
+
+            <!-- 卡片3: Redmi 显示器 -->
+            <div class="card">
+                <div class="card-img-placeholder" style="background:linear-gradient(135deg,#2d3436,#636e72);color:white;">🖥️</div>
+                <div class="card-body">
+                    <span class="card-tag">小米</span>
+                    <h3>Redmi 显示器 G Pro 2026 系列发布：千级分区 QD-Mini LED</h3>
+                    <p>27寸和31.5寸两款QD-Mini LED屏幕，1152分区背光，支持4K 160Hz和1080P 320Hz切换，1ms GTG响应，覆盖98% DCI-P3色域，峰值亮度1600尼特，自带电视功能。</p>
+                    <a class="card-link" href="https://finance.sina.com.cn/tech/digi/2026-04-21/doc-inhvfqcn7001335.shtml" target="_blank">阅读详情 →</a>
+                </div>
+            </div>
+
+            <!-- 卡片4: 折叠屏市场格局 -->
+            <div class="card">
+                <div class="card-img-placeholder" style="background:linear-gradient(135deg,#6c5ce7,#a29bfe);color:white;">📊</div>
+                <div class="card-body">
+                    <span class="card-tag hot">趋势</span>
+                    <h3>折叠屏手机进入市场卡位期，华为苹果竞逐阔折叠赛道</h3>
+                    <p>4月20日华为发布Pura X Max，苹果iPhone Fold传闻2026秋季登场。2025年全球折叠屏出货约1983万台，同比增长6%，但渗透率仅3.52%。2026年或成折叠屏市场转折年。</p>
+                    <a class="card-link" href="https://news.qq.com/rain/a/20260425A01AI600" target="_blank">阅读详情 →</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 家居设计 -->
+        <h2 class="section-title">🛋️ 家居设计</h2>
+        <div class="masonry">
+
+            <!-- 卡片5: 2026家具16大趋势 -->
+            <div class="card">
+                <div class="card-img-placeholder" style="background:linear-gradient(135deg,#dda15e,#bc6c25);color:white;height:220px;">🪑</div>
+                <div class="card-body">
+                    <span class="card-tag hot">趋势报告</span>
+                    <h3>Decorilla发布2026年家具设计16大趋势：手工艺回归与生物形态崛起</h3>
+                    <p>Decorilla权威报告揭示今年家具设计核心方向：超大雕塑感沙发、数据驱动舒适设计、编织黄铜纹理、俏皮动物造型、彩色玻璃桌面、立体主义碎片化几何。材质层面，刺绣木材结合、人造毛皮环保奢华成亮点。</p>
+                    <a class="card-link" href="https://www.decorilla.com/online-decorating/furniture-trends-2026/" target="_blank">阅读详情 →</a>
+                </div>
+            </div>
+
+            <!-- 卡片6: 模块化可拆卸 -->
+            <div class="card">
+                <div class="card-img-placeholder" style="background:linear-gradient(135deg,#00b894,#00cec9);color:white;">♻️</div>
+                <div class="card-body">
+                    <span class="card-tag">可持续设计</span>
+                    <h3>可拆卸模块化设计：家具行业的环保新范式</h3>
+                    <p>2026年家居设计强调"为拆卸而设计"理念——机械紧固件替代胶水和钉子，便于重组、局部更换和回收。Stefan Diez的Costume沙发系统成为代表，家具从"一次性消费"转向"可升级资产"。</p>
+                    <a class="card-link" href="https://www.decorilla.com/online-decorating/furniture-trends-2026/" target="_blank">阅读详情 →</a>
+                </div>
+            </div>
+
+            <!-- 卡片7: 家居文化叙事 -->
+            <div class="card">
+                <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fdcb6e,#e17055);color:white;">🌍</div>
+                <div class="card-body">
+                    <span class="card-tag">趋势</span>
+                    <h3>家居设计进入文化叙事时代：文化融合+可持续+健康设计三维度</h3>
+                    <p>2026年家居与室内设计行业进入转型阶段，特征是文化融合、可持续创新和以健康为中心的设计。消费者越来越关注家具背后的文化故事和品牌价值观，而非仅看功能与外观。</p>
+                    <a class="card-link" href="https://sourcing.hktdc.com/newsbites/wechat/home-trend-2026/" target="_blank">阅读详情 →</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 设计趋势总结 -->
+        <div class="trend-summary">
+            <h2>📌 今日趋势关键词</h2>
+            <div class="trend-grid">
+                <div class="trend-item">
+                    <strong>📲 折叠屏大战</strong>
+                    苹果iPhone Fold机模曝光，华为Pura X Max今日开售，折叠屏进入白热化竞争
+                </div>
+                <div class="trend-item">
+                    <strong>❄️ 主动散热</strong>
+                    Redmi K90 Max首发手机主动风冷，游戏手机散热方案迎来革命性突破
+                </div>
+                <div class="trend-item">
+                    <strong>🪑 生物形态</strong>
+                    2026家具趋势：从自然汲取灵感，有机曲线和流动造型成为主流
+                </div>
+                <div class="trend-item">
+                    <strong>♻️ 模块化设计</strong>
+                    家具为拆卸而设计，机械紧固替代胶水，可持续理念深入产品DNA
+                </div>
+                <div class="trend-item">
+                    <strong>🎨 编织金属</strong>
+                    黄铜编织纹理覆盖柜门和桌腿，金属与纺织工艺跨界融合
+                </div>
+                <div class="trend-item">
+                    <strong>📏 极致轻薄</strong>
+                    苹果为4.5mm厚度砍掉5项功能，"做减法"成为高端产品设计新思路
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>设计趋势日报 · 由虾虾整理 · 每日上午10:00自动推送</p>
+        <p style="margin-top:8px;">灵感来源：IDEO · Behance · Core77 · Yanko Design · Design Milk · Decorilla</p>
+    </div>
+
+</body>
+</html>
