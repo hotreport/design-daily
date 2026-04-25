@@ -1,483 +1,708 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>设计趋势日报 · 2026年4月25日</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --cream: #FDF8F3;
-            --sage: #8FA882;
-            --sage-light: #B8C9A8;
-            --terracotta: #C77B58;
-            --terracotta-light: #E8A882;
-            --charcoal: #2C2C2C;
-            --warm-gray: #6B6560;
-            --card-bg: #FFFFFF;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>设计趋势日报 | 2026年4月25日</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF7F2;
+    --cream-dark: #F0EBE3;
+    --sage: #9CAF88;
+    --sage-light: #B8CCA4;
+    --sage-dark: #7A9468;
+    --terracotta: #C67B5C;
+    --terracotta-light: #D4956F;
+    --charcoal: #2C2C2C;
+    --charcoal-light: #4A4A4A;
+    --text: #3D3D3D;
+    --text-light: #6B6B6B;
+    --border: #E5DFD5;
+    --card-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    --card-hover-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        body {
-            font-family: 'Noto Sans SC', sans-serif;
-            background: var(--cream);
-            color: var(--charcoal);
-            line-height: 1.7;
-        }
+  body {
+    font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
 
-        .hero {
-            background: linear-gradient(135deg, var(--sage) 0%, var(--sage-light) 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+  /* ─── Header ─── */
+  .header {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 24px;
+    background: linear-gradient(135deg, #FAF7F2 0%, #F0EBE3 40%, #E8E0D4 100%);
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(156,175,136,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -15%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(198,123,92,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(156,175,136,0.15);
+    border: 1px solid var(--sage-light);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--sage-dark);
+    font-weight: 500;
+    margin-bottom: 28px;
+    letter-spacing: 0.5px;
+  }
+  .header-badge span.dot {
+    width: 6px; height: 6px;
+    background: var(--sage);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .header h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.3;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  .header .subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--text-light);
+    max-width: 640px;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+  }
+  .header .date-line {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--terracotta);
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+  }
+  .header .date-line::before, .header .date-line::after {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--terracotta-light);
+  }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-        }
+  /* ─── Container ─── */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 50%;
-        }
+  /* ─── Section Title ─── */
+  .section-title {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin: 56px 0 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title::before {
+    content: '';
+    width: 4px;
+    height: 28px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--sage), var(--terracotta));
+  }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+  /* ─── Featured Card (Hero) ─── */
+  .hero-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 40px;
+    transition: box-shadow 0.3s ease;
+    border: 1px solid var(--border);
+  }
+  .hero-card:hover {
+    box-shadow: var(--card-hover-shadow);
+  }
+  .hero-card .card-image {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-card .card-body {
+    padding: 32px;
+  }
+  .hero-card .card-tag {
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+  }
+  .tag-milan { background: rgba(156,175,136,0.15); color: var(--sage-dark); }
+  .tag-huawei { background: rgba(198,123,92,0.12); color: var(--terracotta); }
+  .tag-xiaomi { background: rgba(255,160,50,0.12); color: #D4860F; }
+  .tag-samsung { background: rgba(50,100,200,0.1); color: #3264C8; }
+  .tag-design { background: rgba(156,175,136,0.15); color: var(--sage-dark); }
+  .tag-award { background: rgba(198,123,92,0.12); color: var(--terracotta); }
+  .hero-card h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .hero-card p {
+    color: var(--text-light);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+  .hero-card .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--text-light);
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+  .card-meta .source {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-meta .source::before {
+    content: '';
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    background: var(--sage-light);
+  }
 
-        .hero-badge {
-            display: inline-block;
-            background: var(--terracotta);
-            color: white;
-            padding: 6px 20px;
-            border-radius: 20px;
-            font-size: 14px;
-            margin-bottom: 20px;
-            font-weight: 500;
-            letter-spacing: 1px;
-        }
+  /* ─── Pinterest Grid ─── */
+  .pin-grid {
+    columns: 2;
+    column-gap: 24px;
+  }
+  @media (max-width: 768px) {
+    .pin-grid { columns: 1; }
+  }
 
-        .hero h1 {
-            font-family: 'Noto Serif SC', serif;
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+  .pin-card {
+    break-inside: avoid;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    margin-bottom: 24px;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .pin-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--card-hover-shadow);
+  }
+  .pin-card .pin-img {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pin-card .pin-img.bg-milan { background: linear-gradient(135deg, #E8E0D4, #D4C8B8); }
+  .pin-card .pin-img.bg-huawei { background: linear-gradient(135deg, #F0EBE3, #E5DFD5); }
+  .pin-card .pin-img.bg-xiaomi { background: linear-gradient(135deg, #F5F0E8, #EBE4D8); }
+  .pin-card .pin-img.bg-samsung { background: linear-gradient(135deg, #EBF0F8, #D8E2F0); }
+  .pin-card .pin-img.bg-design { background: linear-gradient(135deg, #E8EDE4, #D4DDD0); }
+  .pin-card .pin-img .pin-emoji {
+    font-size: 56px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+  }
+  .pin-card .pin-body {
+    padding: 20px;
+  }
+  .pin-card h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .pin-card p {
+    color: var(--text-light);
+    font-size: 14px;
+    line-height: 1.75;
+  }
 
-        .hero p {
-            font-size: 16px;
-            opacity: 0.9;
-            font-weight: 300;
-        }
+  /* ─── Stats Bar ─── */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 40px 0;
+  }
+  .stat-item {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+  }
+  .stat-item .stat-num {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--sage), var(--terracotta));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-item .stat-label {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-top: 4px;
+  }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+  /* ─── Table Section ─── */
+  .table-wrap {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border);
+    margin-bottom: 32px;
+  }
+  .table-wrap table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .table-wrap th {
+    background: var(--cream-dark);
+    padding: 14px 20px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--charcoal);
+    letter-spacing: 0.3px;
+    border-bottom: 2px solid var(--border);
+  }
+  .table-wrap td {
+    padding: 12px 20px;
+    font-size: 14px;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+  }
+  .table-wrap tr:last-child td { border-bottom: none; }
+  .table-wrap tr:hover td { background: rgba(156,175,136,0.04); }
 
-        /* 今日头条 */
-        .headline {
-            background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            transition: transform 0.3s ease;
-        }
+  /* ─── Trends Section ─── */
+  .trend-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .trend-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: #fff;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.2s ease;
+  }
+  .trend-item:hover { transform: translateX(4px); }
+  .trend-num {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--sage-light), var(--sage));
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .trend-content h4 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 6px;
+  }
+  .trend-content p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
 
-        .headline:hover {
-            transform: translateY(-4px);
-        }
+  /* ─── Calendar Section ─── */
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .cal-item {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+    border-left: 4px solid var(--sage);
+  }
+  .cal-item.today { border-left-color: var(--terracotta); }
+  .cal-item .cal-date {
+    font-size: 13px;
+    color: var(--terracotta);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .cal-item .cal-event {
+    font-size: 14px;
+    color: var(--charcoal);
+    font-weight: 500;
+  }
 
-        .headline-img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-        }
+  /* ─── Footer ─── */
+  .footer {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--text-light);
+    font-size: 13px;
+    border-top: 1px solid var(--border);
+    margin-top: 48px;
+  }
+  .footer .brand {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.1rem;
+    color: var(--sage-dark);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
 
-        .headline-content {
-            padding: 32px;
-        }
-
-        .headline-tag {
-            display: inline-block;
-            background: var(--terracotta);
-            color: white;
-            padding: 4px 14px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
-        }
-
-        .headline h2 {
-            font-family: 'Noto Serif SC', serif;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 16px;
-            line-height: 1.4;
-        }
-
-        .headline p {
-            color: var(--warm-gray);
-            font-size: 15px;
-            line-height: 1.8;
-            margin-bottom: 16px;
-        }
-
-        .headline-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: var(--sage);
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-
-        .headline-link:hover {
-            color: var(--terracotta);
-        }
-
-        /* 分类标题 */
-        .section-title {
-            font-family: 'Noto Serif SC', serif;
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            padding-left: 16px;
-            border-left: 4px solid var(--terracotta);
-        }
-
-        /* Pinterest 瀑布流 */
-        .masonry {
-            columns: 3;
-            column-gap: 24px;
-            margin-bottom: 48px;
-        }
-
-        .card {
-            break-inside: avoid;
-            background: var(--card-bg);
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-        }
-
-        .card-img {
-            width: 100%;
-            display: block;
-        }
-
-        .card-img-placeholder {
-            width: 100%;
-            height: 180px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-        }
-
-        .card-body {
-            padding: 20px;
-        }
-
-        .card-tag {
-            display: inline-block;
-            background: var(--sage);
-            color: white;
-            padding: 3px 10px;
-            border-radius: 10px;
-            font-size: 11px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-        }
-
-        .card-tag.hot {
-            background: var(--terracotta);
-        }
-
-        .card h3 {
-            font-family: 'Noto Serif SC', serif;
-            font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            line-height: 1.5;
-        }
-
-        .card p {
-            color: var(--warm-gray);
-            font-size: 13px;
-            line-height: 1.8;
-        }
-
-        .card-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            color: var(--sage);
-            font-weight: 500;
-            text-decoration: none;
-            font-size: 12px;
-            margin-top: 10px;
-            transition: color 0.3s;
-        }
-
-        .card-link:hover {
-            color: var(--terracotta);
-        }
-
-        /* 趋势总结卡片 */
-        .trend-summary {
-            background: linear-gradient(135deg, #f5f0eb 0%, #ede5dc 100%);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-        }
-
-        .trend-summary h2 {
-            font-family: 'Noto Serif SC', serif;
-            font-size: 22px;
-            margin-bottom: 20px;
-            color: var(--terracotta);
-        }
-
-        .trend-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-        }
-
-        .trend-item {
-            background: rgba(255,255,255,0.7);
-            padding: 16px;
-            border-radius: 12px;
-            font-size: 14px;
-        }
-
-        .trend-item strong {
-            display: block;
-            color: var(--sage);
-            margin-bottom: 4px;
-            font-size: 15px;
-        }
-
-        /* 底部 */
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--warm-gray);
-            font-size: 13px;
-        }
-
-        .footer a {
-            color: var(--sage);
-            text-decoration: none;
-        }
-
-        /* 响应式 */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 28px; }
-            .headline-img { height: 240px; }
-            .headline h2 { font-size: 22px; }
-            .masonry { columns: 1; }
-            .trend-grid { grid-template-columns: 1fr; }
-        }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .masonry { columns: 2; }
-        }
-    </style>
+  /* ─── Responsive ─── */
+  @media (max-width: 640px) {
+    .header { min-height: 50vh; padding: 40px 20px; }
+    .hero-card .card-body { padding: 20px; }
+    .hero-card h2 { font-size: 1.25rem; }
+    .section-title { font-size: 1.3rem; margin: 40px 0 24px; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
 </head>
 <body>
 
-    <!-- Hero -->
-    <div class="hero">
-        <div class="hero-content">
-            <span class="hero-badge">📅 2026年4月25日 · 星期六</span>
-            <h1>设计趋势日报</h1>
-            <p>工业设计 · 家居设计 · 消费电子 — 每日精选灵感</p>
+<!-- Header -->
+<header class="header">
+  <div class="header-badge"><span class="dot"></span> 每日设计趋势推送</div>
+  <h1>设计趋势日报</h1>
+  <p class="subtitle">米兰设计周进行时 · 华为Pura 90系列发布 · Redmi K90 Max风冷旗舰登场</p>
+  <div class="date-line">2026年4月25日 · 周六</div>
+</header>
+
+<div class="container">
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-num">1900+</div>
+      <div class="stat-label">米兰设计周参展品牌</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">华为发布会新品数</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">4</div>
+      <div class="stat-label">三星Edison获奖数</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">Day 6</div>
+      <div class="stat-label">米兰设计周进行中</div>
+    </div>
+  </div>
+
+  <!-- ─── Hero: 米兰设计周 ─── -->
+  <section>
+    <div class="section-title">头条资讯</div>
+    <div class="hero-card">
+      <div class="pin-img bg-milan" style="width:100%;height:320px;">
+        <span class="pin-emoji">🏛️</span>
+      </div>
+      <div class="card-body">
+        <span class="card-tag tag-milan">米兰设计周</span>
+        <h2>Salone del Mobile 2026 进入第六日：全球设计盛宴巅峰时刻</h2>
+        <p>第64届米兰国际家具展（4月20-26日）进入尾声。今年首次设立 <strong>Salone Raritas</strong> 收藏级设计展区，OMA主导的 <strong>Contract Forum</strong> 探索未来办公空间方案。自然材质回归、80年代Memphis设计复兴、艺术与设计边界持续模糊，成为本年度三大趋势关键词。</p>
+        <div style="margin:16px 0;">
+          <strong style="color:var(--charcoal);font-size:14px;">重点展品一览：</strong>
+          <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;">
+            <span style="padding:4px 12px;background:var(--cream);border-radius:100px;font-size:12px;color:var(--text-light);">Cassina × Urquiola</span>
+            <span style="padding:4px 12px;background:var(--cream);border-radius:100px;font-size:12px;color:var(--text-light);">Flos Maap灯光墙</span>
+            <span style="padding:4px 12px;background:var(--cream);border-radius:100px;font-size:12px;color:var(--text-light);">Aesop首款台灯</span>
+            <span style="padding:4px 12px;background:var(--cream);border-radius:100px;font-size:12px;color:var(--text-light);">Dior Murano灯具</span>
+            <span style="padding:4px 12px;background:var(--cream);border-radius:100px;font-size:12px;color:var(--text-light);">Rubelli × Ai Weiwei</span>
+            <span style="padding:4px 12px;background:var(--cream);border-radius:100px;font-size:12px;color:var(--text-light);">Kelly Wearstler × H&M</span>
+            <span style="padding:4px 12px;background:var(--cream);border-radius:100px;font-size:12px;color:var(--text-light);">Nike Air_Lab</span>
+            <span style="padding:4px 12px;background:var(--cream);border-radius:100px;font-size:12px;color:var(--text-light);">Gucci × Demna</span>
+          </div>
         </div>
+        <div class="card-meta">
+          <span class="source">Wallpaper\* / Dezeen</span>
+          <span>2026-04-25</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Pin Grid ─── -->
+  <div class="section-title">品牌新品</div>
+  <div class="pin-grid">
+
+    <!-- 华为 -->
+    <div class="pin-card">
+      <div class="pin-img bg-huawei"><span class="pin-emoji">📱</span></div>
+      <div class="pin-body">
+        <span class="card-tag tag-huawei">华为</span>
+        <h3>Pura 90系列：情绪色彩美学 + 麒麟9030S</h3>
+        <p>全系直屏设计，Pro/Pro Max业界首发光感无界主题+双色渐变金属中框。Pro Max搭载2亿像素RYYB超大底长焦+抗反光昆仑玻璃。HyperSpace Memory技术让12GB实现16GB保活。售价4699元起。</p>
+      </div>
     </div>
 
-    <div class="container">
-
-        <!-- 今日头条 -->
-        <a class="headline" href="https://finance.sina.com.cn/stock/t/2026-04-25/doc-inhvtmtf0834472.shtml" target="_blank" style="text-decoration:none;color:inherit;">
-            <div style="width:100%;height:360px;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-                <div style="position:absolute;top:20px;right:30px;font-size:120px;opacity:0.1;">📱</div>
-                <div style="position:absolute;bottom:30px;left:40px;font-size:80px;opacity:0.08;">⚡</div>
-                <div style="text-align:center;color:white;position:relative;z-index:1;">
-                    <div style="font-size:72px;margin-bottom:16px;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.3));">📲</div>
-                    <div style="font-family:'Noto Serif SC',serif;font-size:24px;font-weight:700;text-shadow:0 2px 8px rgba(0,0,0,0.4);">iPhone Fold · 苹果首款折叠屏</div>
-                    <div style="font-size:14px;opacity:0.8;margin-top:8px;">4.5mm 超薄机身 · 液态金属铰链 · 2026秋季发布</div>
-                </div>
-            </div>
-            <div class="headline-content">
-                <span class="headline-tag">🔥 今日头条</span>
-                <h2>苹果 iPhone Fold 机模全面曝光：史上最贵iPhone，起售价近1.5万元</h2>
-                <p>苹果首款折叠屏手机 iPhone Fold 详细规格与机模全面曝光，目标直指2026年秋季发布。为追求极致轻薄（单边仅4.5mm），苹果做出五大妥协：取消自定义操作按钮、舍弃MagSafe磁吸、放弃Face ID改用侧边指纹、影像仅双摄（4800万主摄+超广角，无长焦）、取消实体SIM卡槽全面转向eSIM。核心卖点聚焦 UFG不等厚玻璃"视觉无折痕"技术和液态金属铰链。起售价预计突破2000美元，首年销量预估600-700万台，占全球折叠屏市场约22%份额。</p>
-                <span class="headline-link">阅读详情 →</span>
-            </div>
-        </a>
-
-        <!-- 消费电子 -->
-        <h2 class="section-title">📱 消费电子</h2>
-        <div class="masonry">
-
-            <!-- 卡片1: 华为Pura X Max -->
-            <div class="card">
-                <img class="card-img" src="Huawei_Pura_X_Max_foldable_sma_2026-04-25T13-04-12.png" alt="华为 Pura X Max" onerror="this.outerHTML='<div class=\'card-img-placeholder\' style=\'background:linear-gradient(135deg,#1a1a2e,#e94560);color:white;font-size:36px;\'>📱</div>'">
-                <div class="card-body">
-                    <span class="card-tag hot">华为</span>
-                    <h3>华为 Pura X Max 阔折叠旗舰今日开售，起售10999元</h3>
-                    <p>华为首款双面阔型屏手机今日正式开售。内外双大屏设计，展开后提供沉浸式体验。全系搭载麒麟9030 Pro旗舰芯片，首发AI灵感妙创、XMAGE智拍等多项技术，五款时尚配色，支持防尘抗水。</p>
-                    <a class="card-link" href="https://finance.sina.com.cn/stock/t/2026-04-21/doc-inhvfqcn6988714.shtml" target="_blank">阅读详情 →</a>
-                </div>
-            </div>
-
-            <!-- 卡片2: Redmi K90 Max -->
-            <div class="card">
-                <div class="card-img-placeholder" style="background:linear-gradient(135deg,#ff6b35,#f7c948);color:white;">🎮</div>
-                <div class="card-body">
-                    <span class="card-tag">小米</span>
-                    <h3>Redmi K90 Max 首发主动风冷散热，首销刷新3K-4K价位纪录</h3>
-                    <p>搭载天玑9500双芯，内置直径18.1mm超大风扇，单体最大风量0.42CFM，搭配直立式进风结构和仿真涡流风道，风量利用率达78.6%。首销4小时刷新近一年全渠道3K-4K新机首销纪录。</p>
-                    <a class="card-link" href="https://finance.sina.com.cn/tech/roll/2026-04-21/doc-inhvhrqu6100232.shtml" target="_blank">阅读详情 →</a>
-                </div>
-            </div>
-
-            <!-- 卡片3: Redmi 显示器 -->
-            <div class="card">
-                <div class="card-img-placeholder" style="background:linear-gradient(135deg,#2d3436,#636e72);color:white;">🖥️</div>
-                <div class="card-body">
-                    <span class="card-tag">小米</span>
-                    <h3>Redmi 显示器 G Pro 2026 系列发布：千级分区 QD-Mini LED</h3>
-                    <p>27寸和31.5寸两款QD-Mini LED屏幕，1152分区背光，支持4K 160Hz和1080P 320Hz切换，1ms GTG响应，覆盖98% DCI-P3色域，峰值亮度1600尼特，自带电视功能。</p>
-                    <a class="card-link" href="https://finance.sina.com.cn/tech/digi/2026-04-21/doc-inhvfqcn7001335.shtml" target="_blank">阅读详情 →</a>
-                </div>
-            </div>
-
-            <!-- 卡片4: 折叠屏市场格局 -->
-            <div class="card">
-                <div class="card-img-placeholder" style="background:linear-gradient(135deg,#6c5ce7,#a29bfe);color:white;">📊</div>
-                <div class="card-body">
-                    <span class="card-tag hot">趋势</span>
-                    <h3>折叠屏手机进入市场卡位期，华为苹果竞逐阔折叠赛道</h3>
-                    <p>4月20日华为发布Pura X Max，苹果iPhone Fold传闻2026秋季登场。2025年全球折叠屏出货约1983万台，同比增长6%，但渗透率仅3.52%。2026年或成折叠屏市场转折年。</p>
-                    <a class="card-link" href="https://news.qq.com/rain/a/20260425A01AI600" target="_blank">阅读详情 →</a>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- 家居设计 -->
-        <h2 class="section-title">🛋️ 家居设计</h2>
-        <div class="masonry">
-
-            <!-- 卡片5: 2026家具16大趋势 -->
-            <div class="card">
-                <div class="card-img-placeholder" style="background:linear-gradient(135deg,#dda15e,#bc6c25);color:white;height:220px;">🪑</div>
-                <div class="card-body">
-                    <span class="card-tag hot">趋势报告</span>
-                    <h3>Decorilla发布2026年家具设计16大趋势：手工艺回归与生物形态崛起</h3>
-                    <p>Decorilla权威报告揭示今年家具设计核心方向：超大雕塑感沙发、数据驱动舒适设计、编织黄铜纹理、俏皮动物造型、彩色玻璃桌面、立体主义碎片化几何。材质层面，刺绣木材结合、人造毛皮环保奢华成亮点。</p>
-                    <a class="card-link" href="https://www.decorilla.com/online-decorating/furniture-trends-2026/" target="_blank">阅读详情 →</a>
-                </div>
-            </div>
-
-            <!-- 卡片6: 模块化可拆卸 -->
-            <div class="card">
-                <div class="card-img-placeholder" style="background:linear-gradient(135deg,#00b894,#00cec9);color:white;">♻️</div>
-                <div class="card-body">
-                    <span class="card-tag">可持续设计</span>
-                    <h3>可拆卸模块化设计：家具行业的环保新范式</h3>
-                    <p>2026年家居设计强调"为拆卸而设计"理念——机械紧固件替代胶水和钉子，便于重组、局部更换和回收。Stefan Diez的Costume沙发系统成为代表，家具从"一次性消费"转向"可升级资产"。</p>
-                    <a class="card-link" href="https://www.decorilla.com/online-decorating/furniture-trends-2026/" target="_blank">阅读详情 →</a>
-                </div>
-            </div>
-
-            <!-- 卡片7: 家居文化叙事 -->
-            <div class="card">
-                <div class="card-img-placeholder" style="background:linear-gradient(135deg,#fdcb6e,#e17055);color:white;">🌍</div>
-                <div class="card-body">
-                    <span class="card-tag">趋势</span>
-                    <h3>家居设计进入文化叙事时代：文化融合+可持续+健康设计三维度</h3>
-                    <p>2026年家居与室内设计行业进入转型阶段，特征是文化融合、可持续创新和以健康为中心的设计。消费者越来越关注家具背后的文化故事和品牌价值观，而非仅看功能与外观。</p>
-                    <a class="card-link" href="https://sourcing.hktdc.com/newsbites/wechat/home-trend-2026/" target="_blank">阅读详情 →</a>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- 设计趋势总结 -->
-        <div class="trend-summary">
-            <h2>📌 今日趋势关键词</h2>
-            <div class="trend-grid">
-                <div class="trend-item">
-                    <strong>📲 折叠屏大战</strong>
-                    苹果iPhone Fold机模曝光，华为Pura X Max今日开售，折叠屏进入白热化竞争
-                </div>
-                <div class="trend-item">
-                    <strong>❄️ 主动散热</strong>
-                    Redmi K90 Max首发手机主动风冷，游戏手机散热方案迎来革命性突破
-                </div>
-                <div class="trend-item">
-                    <strong>🪑 生物形态</strong>
-                    2026家具趋势：从自然汲取灵感，有机曲线和流动造型成为主流
-                </div>
-                <div class="trend-item">
-                    <strong>♻️ 模块化设计</strong>
-                    家具为拆卸而设计，机械紧固替代胶水，可持续理念深入产品DNA
-                </div>
-                <div class="trend-item">
-                    <strong>🎨 编织金属</strong>
-                    黄铜编织纹理覆盖柜门和桌腿，金属与纺织工艺跨界融合
-                </div>
-                <div class="trend-item">
-                    <strong>📏 极致轻薄</strong>
-                    苹果为4.5mm厚度砍掉5项功能，"做减法"成为高端产品设计新思路
-                </div>
-            </div>
-        </div>
-
+    <!-- 华为X Max -->
+    <div class="pin-card">
+      <div class="pin-img bg-huawei"><span class="pin-emoji">📱</span></div>
+      <div class="pin-body">
+        <span class="card-tag tag-huawei">华为</span>
+        <h3>Pura X Max：行业首款横向阔折叠</h3>
+        <p>A4纸比例折叠形态，内外屏接近√2:1。内屏7.7英寸接近iPad mini体验。陶瓷饰圈+立体光栅玻璃机身。麒麟9030 Pro芯片，12+256GB版10999元起。折叠屏从通讯工具向生产力设备进化。</p>
+      </div>
     </div>
 
-    <div class="footer">
-        <p>设计趋势日报 · 由虾虾整理 · 每日上午10:00自动推送</p>
-        <p style="margin-top:8px;">灵感来源：IDEO · Behance · Core77 · Yanko Design · Design Milk · Decorilla</p>
+    <!-- Redmi -->
+    <div class="pin-card">
+      <div class="pin-img bg-xiaomi"><span class="pin-emoji">🌀</span></div>
+      <div class="pin-body">
+        <span class="card-tag tag-xiaomi">小米</span>
+        <h3>Redmi K90 Max：首款内置风扇散热手机</h3>
+        <p>小米首款主动散热旗舰，独立密闭风道+全金属轴承，100秒核心降温10°C。天玑9500双芯+8550mAh电池。铝合金中框极窄边框，太空银/暗影黑/天际蓝三色。首销价2999元起。</p>
+      </div>
     </div>
+
+    <!-- 三星 -->
+    <div class="pin-card">
+      <div class="pin-img bg-samsung"><span class="pin-emoji">🏆</span></div>
+      <div class="pin-body">
+        <span class="card-tag tag-samsung">三星</span>
+        <h3>Edison Awards 2026斩获四项大奖</h3>
+        <p>两金两银：Smart Modular House（预制ADU模块化住宅，可扩展桑拿房/办公室）获金奖，Vision AI Companion（TV交互AI平台）获金奖。模块化建筑+IT集成成为智能家居新方向。</p>
+      </div>
+    </div>
+
+    <!-- 华为AI眼镜 -->
+    <div class="pin-card">
+      <div class="pin-img bg-huawei"><span class="pin-emoji">🥽</span></div>
+      <div class="pin-body">
+        <span class="card-tag tag-huawei">华为</span>
+        <h3>华为AI眼镜：自研芯片 + 黄金三角架构</h3>
+        <p>搭载华为自研AI眼镜芯片，基于超30万亚洲人头形数据优化的黄金三角佩戴架构。1/2.8"大底传感器+AI多帧融合，支持支付宝"看一下"支付、第一人称视角直播。2499元起。</p>
+      </div>
+    </div>
+
+    <!-- Design Milk -->
+    <div class="pin-card">
+      <div class="pin-img bg-design"><span class="pin-emoji">🏠</span></div>
+      <div class="pin-body">
+        <span class="card-tag tag-design">设计</span>
+        <h3>Eames Pavilion System 77年后面世</h3>
+        <p>Charles和Ray Eames的住宅愿景历经77年终实现，可通过预制套件搭建。同期Bang & Olufsen推出Beolab 90 Atelier Editions五款定制版，将声音转化为火山岩纹理、虹彩表面等材料体验。</p>
+      </div>
+    </div>
+
+    <!-- iF Award -->
+    <div class="pin-card">
+      <div class="pin-img bg-design"><span class="pin-emoji">🏅</span></div>
+      <div class="pin-body">
+        <span class="card-tag tag-award">奖项</span>
+        <h3>iF Design Award 2026颁奖在即</h3>
+        <p>颁奖典礼将于4月27日在柏林举行。索尼以两款金奖领跑（INZONE H9 II电竞耳机+CineAltaV 2摄影机），蔚来、京东京造、欧定衬衫、茅台等中国品牌首次集体突围。</p>
+      </div>
+    </div>
+
+    <!-- 华为Watch -->
+    <div class="pin-card">
+      <div class="pin-img bg-huawei"><span class="pin-emoji">⌚</span></div>
+      <div class="pin-body">
+        <span class="card-tag tag-huawei">华为</span>
+        <h3>WATCH非凡大师：99颗钻石 + 29999元</h3>
+        <p>星钻绽放款，斐波那契黄金比例曲线灵感，表冠到表带共镶嵌99颗天然钻石。蓝宝石玻璃镜面+钻切工艺，玄玑感知系统支持60秒微体检。同场发布WATCH FIT 5系列（2099元起）。</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ─── 米兰设计周展品表 ─── -->
+  <section>
+    <div class="section-title">米兰设计周 · 必看展品</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>品牌 / 合作方</th>
+            <th>展品 / 项目</th>
+            <th>亮点</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Cassina × Patricia Urquiola</td><td>Ardys沙发</td><td>经典软体家具新材质探索</td></tr>
+          <tr><td>Flos × Erwan Bouroullec</td><td>Maap灯光墙</td><td>将灯光转化为建筑元素</td></tr>
+          <tr><td>B&B Italia</td><td>Nena折叠椅重版</td><td>Richard Sapper 1984经典回归</td></tr>
+          <tr><td>Aesop</td><td>Aposē台灯</td><td>护肤品牌首款照明产品</td></tr>
+          <tr><td>Dior × N. Duchaufour-Lawrance</td><td>Murano玻璃灯具</td><td>1947 Bar套装蜂腰轮廓灵感</td></tr>
+          <tr><td>Rubelli × Ai Weiwei</td><td>About Silk装置</td><td>丝绸上的艺术与纺织对话</td></tr>
+          <tr><td>Kelly Wearstler × H&M Home</td><td>家具合作系列</td><td>高端与高街的碰撞</td></tr>
+          <tr><td>Nike × Dropcity</td><td>Air_Lab</td><td>空气作为设计材料的探索</td></tr>
+          <tr><td>Gucci × Demna</td><td>Memoria挂毯</td><td>文艺复兴风格品牌105年史</td></tr>
+          <tr><td>Tacchini × Faye Toogood</td><td>Butter座椅系统</td><td>多种材质诠释的柔软体验</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ─── 趋势观察 ─── -->
+  <section>
+    <div class="section-title">趋势观察</div>
+    <div class="trend-list">
+      <div class="trend-item">
+        <div class="trend-num">1</div>
+        <div class="trend-content">
+          <h4>折叠屏品类拓展：从通讯到生产力</h4>
+          <p>华为Pura X Max开创横向阔折叠新品类（√2:1类纸比例），折叠屏不再局限于竖折/横折手机形态，正向"便携生产力工具"定位加速进化。</p>
+        </div>
+      </div>
+      <div class="trend-item">
+        <div class="trend-num">2</div>
+        <div class="trend-content">
+          <h4>主动散热进入移动设备</h4>
+          <p>Redmi K90 Max内置风扇标志着高功耗移动设备散热方案从被动向主动转变，未来高性能手机/平板可能普遍配备微型散热系统。</p>
+        </div>
+      </div>
+      <div class="trend-item">
+        <div class="trend-num">3</div>
+        <div class="trend-content">
+          <h4>AI硬件加速落地：从云端到终端</h4>
+          <p>华为自研AI眼镜芯片、三星Vision AI Companion，AI能力正从云端下沉到终端硬件，智能眼镜成为AI落地的下一个主战场。</p>
+        </div>
+      </div>
+      <div class="trend-item">
+        <div class="trend-num">4</div>
+        <div class="trend-content">
+          <h4>模块化住宅成新赛道</h4>
+          <p>三星Smart Modular House获Edison金奖，预制模块化建筑+IT集成+智能家居一体化，成为科技巨头进军建筑领域的新方向。</p>
+        </div>
+      </div>
+      <div class="trend-item">
+        <div class="trend-num">5</div>
+        <div class="trend-content">
+          <h4>收藏级设计走热</h4>
+          <p>米兰设计周首设Salone Raritas收藏设计展区，限量版/手工定制家居产品市场持续扩大，设计品的"投资属性"日益受到关注。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Calendar ─── -->
+  <section>
+    <div class="section-title">本周设计日历</div>
+    <div class="calendar-grid">
+      <div class="cal-item">
+        <div class="cal-date">4月20日（周一）</div>
+        <div class="cal-event">米兰设计周2026开幕 · 华为Pura系列发布会</div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">4月21日（周二）</div>
+        <div class="cal-event">Redmi K90 Max发布</div>
+      </div>
+      <div class="cal-item today">
+        <div class="cal-date">4月25日（周六）· 今天</div>
+        <div class="cal-event">米兰设计周最后一天</div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">4月26日（周日）</div>
+        <div class="cal-event">米兰设计周闭幕</div>
+      </div>
+      <div class="cal-item">
+        <div class="cal-date">4月27日（周一）</div>
+        <div class="cal-event">iF Design Award 2026 柏林颁奖</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="brand">虾虾 · 设计趋势日报</div>
+  <p>数据来源：Wallpaper\* · IT之家 · Design Milk · Samsung Newsroom · Salone del Mobile 官网</p>
+  <p style="margin-top:6px;">由AI自动生成，每日上午10:00推送</p>
+</footer>
 
 </body>
 </html>
